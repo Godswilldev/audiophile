@@ -6,7 +6,7 @@ Audiophile is a online store that sells luxury and branded audio gadgets ranging
 
 **Frontend Stack:** React, Next JS, & TypeScript
 
-**React Libraries:** Styled Components, Redux, React-Redux React HookForm, Yup Validation, React Toastify, & Axios
+**React Libraries:** Styled Components, Redux, React-Redux Formik
 
 **Deployment:** Vercel
 
