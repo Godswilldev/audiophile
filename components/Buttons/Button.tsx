@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "./../../Utils/Theme";
+import ArrowRight from "../../assets/shared/desktop/icon-arrow-right.svg";
 
 interface ButtonProps {
   text: string;
@@ -13,7 +14,9 @@ interface ButtonProps {
 }
 
 const Button = ({ text, type }: ButtonProps) => (
-  <ButtonStyles props={type}>{text}</ButtonStyles>
+  <>
+    <ButtonStyles props={type}>{text}</ButtonStyles>
+  </>
 );
 
 export default Button;
