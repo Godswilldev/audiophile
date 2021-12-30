@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { colors } from "./../../Utils/Theme";
-import ArrowRight from "../../assets/shared/desktop/icon-arrow-right.svg";
 
 interface ButtonProps {
   text: string;
@@ -15,19 +14,49 @@ interface ButtonProps {
 
 const Button = ({ text, type }: ButtonProps) => (
   <>
-    <ButtonStyles props={type}>{text}</ButtonStyles>
+    <ButtonStyles props={type}>
+      {text}
+      {(type === "BORDER-LESS_BLACK") | (type === "BORDER-LESS_COLOURED") ? (
+        <svg
+          className="arrow__Right"
+          width="8"
+          height="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.322 1l5 5-5 5"
+            stroke={
+              type === "BORDER-LESS_BLACK"
+                ? colors.colorBlack
+                : colors.colorDarkPink
+            }
+            strokeWidth="2"
+            fill="none"
+            fillRule="evenodd"
+          />
+        </svg>
+      ) : (
+        ""
+      )}
+    </ButtonStyles>
   </>
 );
 
 export default Button;
 
 const ButtonStyles = styled.button`
+  position: relative;
   outline: none;
   width: 16rem;
   height: 4.8rem;
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 700;
+  .arrow__Right {
+    position: relative;
+    margin-left: 1.2rem;
+    top: 0.2rem;
+  }
   border: ${({ props }: string) => {
     switch (props) {
       case "PINK_DARK":
@@ -77,7 +106,7 @@ const ButtonStyles = styled.button`
       case "BORDERED":
         return colors.colorBlack;
       case "BORDER-LESS_BLACK":
-        return "transparent";
+        return colors.colorBlack;
       case "BORDER-LESS_COLOURED":
         return colors.colorDarkPink;
       default:
