@@ -41,7 +41,5 @@ export const Global = createGlobalStyle`
       list-style: none;
     }
   body {
-    font-family: 'Jost', sans-serif;
-    /* background: ${colors.col4};
-    color: ${colors.col6}; */
+    font-family: 'Manrope', sans-serif;
   }`;
