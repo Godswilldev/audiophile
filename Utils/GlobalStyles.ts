@@ -43,5 +43,4 @@ export const Global = createGlobalStyle`
   body {
     font-family: 'Manrope', sans-serif;
     font-style: normal,
-
   }`;
