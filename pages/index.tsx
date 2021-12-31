@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
-import Button from "./../components/Buttons/Button";
+import Navbar from "../components/Navbar/Navbar";
+import HomePage from "./../components/HomePage/Home";
 
 const Home: NextPage = () => {
   return (
-    <>
-      <h1>Audiophile</h1>
-      <Button variant="PINK_DARK" text="See Product" />
-    </>
+    <section>
+      <Navbar />
+      <HomePage />
+    </section>
   );
 };
 

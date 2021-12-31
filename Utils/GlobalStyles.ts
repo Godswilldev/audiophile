@@ -12,6 +12,7 @@ export const Global = createGlobalStyle`
   }
  html{
         box-sizing: border-box;
+        scroll-behavior: smooth;
         @media ${device.desktop}{
             font-size: 100%;
         }
@@ -42,5 +43,7 @@ export const Global = createGlobalStyle`
     }
   body {
     font-family: 'Manrope', sans-serif;
-    font-style: normal,
+    font-style: normal;
+    position: relative;
+
   }`;
