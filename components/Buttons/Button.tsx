@@ -3,7 +3,7 @@ import { colors } from "./../../Utils/Theme";
 
 interface ButtonProps {
   text: string;
-  type:
+  variant:
     | "PINK_DARK"
     | "PINK_LIGHT"
     | "BLACK"
@@ -12,11 +12,11 @@ interface ButtonProps {
     | "BORDER-LESS_COLOURED";
 }
 
-const Button = ({ text, type }: ButtonProps) => (
+const Button = ({ text, variant }: ButtonProps) => (
   <>
-    <ButtonStyles props={type}>
+    <ButtonStyles text={text} variant={variant}>
       {text}
-      {(type === "BORDER-LESS_BLACK") | (type === "BORDER-LESS_COLOURED") ? (
+      {variant === "BORDER-LESS_BLACK" || variant === "BORDER-LESS_COLOURED" ? (
         <svg
           className="arrow__Right"
           width="8"
@@ -26,7 +26,7 @@ const Button = ({ text, type }: ButtonProps) => (
           <path
             d="M1.322 1l5 5-5 5"
             stroke={
-              type === "BORDER-LESS_BLACK"
+              variant === "BORDER-LESS_BLACK"
                 ? colors.colorBlack
                 : colors.colorDarkPink
             }
@@ -44,7 +44,7 @@ const Button = ({ text, type }: ButtonProps) => (
 
 export default Button;
 
-const ButtonStyles = styled.button`
+const ButtonStyles = styled.button<ButtonProps>`
   position: relative;
   outline: none;
   width: 16rem;
@@ -57,8 +57,8 @@ const ButtonStyles = styled.button`
     margin-left: 1.2rem;
     top: 0.2rem;
   }
-  border: ${({ props }: string) => {
-    switch (props) {
+  border: ${({ variant }) => {
+    switch (variant) {
       case "PINK_DARK":
         return "none";
       case "PINK_LIGHT":
@@ -76,8 +76,8 @@ const ButtonStyles = styled.button`
         break;
     }
   }};
-  background-color: ${({ props }: string) => {
-    switch (props) {
+  background-color: ${({ variant }) => {
+    switch (variant) {
       case "PINK_DARK":
         return colors.colorDarkPink;
       case "PINK_LIGHT":
@@ -95,8 +95,8 @@ const ButtonStyles = styled.button`
         break;
     }
   }};
-  color: ${({ props }: string) => {
-    switch (props) {
+  color: ${({ variant }) => {
+    switch (variant) {
       case "PINK_DARK":
         return colors.colorWhite;
       case "PINK_LIGHT":

@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <>
       <h1>Audiophile</h1>
-      <Button type="BORDER-LESS_BLACK" text="See Product" />
+      <Button variant="PINK_DARK" text="See Product" />
     </>
   );
 };
