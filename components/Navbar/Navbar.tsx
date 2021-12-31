@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { colors } from "./../../Utils/Theme";
 import { useState, useEffect } from "react";
+import logo from "../../assets/shared/desktop/logo.svg";
+import cart from "../../assets/shared/desktop/icon-cart.svg";
+import Image from "next/image";
+import { boldText } from "../../Utils/Typography";
+import Link from "next/link";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +22,18 @@ const Navbar = () => {
         position: scrolled ? "fixed" : "relative",
       }}
     >
-      <h1>Audiophile</h1>
+      <div className="nav">
+        <Image className="nav__logo" src={logo} alt="nav logo" />
+
+        <ul className="nav__links">
+          <Link href="/">Home</Link>
+          <Link href="/headphones">Headphones</Link>
+          <Link href="/speakers">Speakers</Link>
+          <Link href="/earphones">Earphones</Link>
+        </ul>
+
+        <Image src={cart} alt="cart" />
+      </div>
     </NavbarStyles>
   );
 };
@@ -30,4 +46,26 @@ const NavbarStyles = styled.nav`
   width: 100%;
   padding: 10px;
   color: ${colors.colorWhite};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__logo {
+    }
+
+    &__links {
+      display: flex;
+      justify-content: space-between;
+      a {
+        margin-right: 3rem;
+        ${boldText}
+        text-transform: uppercase;
+        color: ${colors.colorWhite};
+      }
+    }
+  }
 `;

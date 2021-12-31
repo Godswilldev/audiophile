@@ -5,7 +5,6 @@ import HomePage from "./../components/HomePage/Home";
 const Home: NextPage = () => {
   return (
     <section>
-      <Navbar />
       <HomePage />
     </section>
   );
