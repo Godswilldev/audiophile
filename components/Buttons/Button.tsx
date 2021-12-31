@@ -52,6 +52,11 @@ const ButtonStyles = styled.button<ButtonProps>`
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 700;
+  transition: transform 0.2s ease-in-out;
+  &:active,
+  :focus {
+    transform: translateY(-0.1rem);
+  }
   .arrow__Right {
     position: relative;
     margin-left: 1.2rem;

@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-title-in-document-head */
 import { Html, Head, Main, NextScript } from "next/document";
-import Logo from "../assets/shared/desktop/logo.svg";
 
 export default function Document() {
   return (
