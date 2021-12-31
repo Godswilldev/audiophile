@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-title-in-document-head */
 import { Html, Head, Main, NextScript } from "next/document";
+import Logo from "../assets/shared/desktop/logo.svg";
 
 export default function Document() {
   return (
@@ -14,7 +15,7 @@ export default function Document() {
           name="description"
           content="Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/shared/desktop/logo.svg" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
