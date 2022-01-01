@@ -25,11 +25,7 @@ const Button = ({ text, variant }: ButtonProps) => (
         >
           <path
             d="M1.322 1l5 5-5 5"
-            stroke={
-              variant === "BORDER-LESS_BLACK"
-                ? colors.colorBlack
-                : colors.colorDarkPink
-            }
+            stroke={colors.colorDarkPink}
             strokeWidth="2"
             fill="none"
             fillRule="evenodd"
@@ -56,6 +52,48 @@ const ButtonStyles = styled.button<ButtonProps>`
   &:active,
   :focus {
     transform: translateY(-0.1rem);
+  }
+
+  &:hover {
+    background-color: ${({ variant }) => {
+      switch (variant) {
+        case "PINK_DARK":
+          return colors.colorLightPink;
+        case "PINK_LIGHT":
+          return colors.colorDarkPink;
+        case "BLACK":
+          return colors.colorLightBlack;
+        case "BORDERED":
+          return "transparent";
+        case "BORDER-LESS_BLACK":
+          return "transparent";
+        case "BORDER-LESS_COLOURED":
+          return "transparent";
+        default:
+          colors.colorBlack;
+          break;
+      }
+    }};
+
+    color: ${({ variant }) => {
+      switch (variant) {
+        case "PINK_DARK":
+          return colors.colorWhite;
+        case "PINK_LIGHT":
+          return colors.colorWhite;
+        case "BLACK":
+          return colors.colorWhite;
+        case "BORDERED":
+          return colors.colorBlack;
+        case "BORDER-LESS_BLACK":
+          return colors.colorDarkPink;
+        case "BORDER-LESS_COLOURED":
+          return colors.colorBlack;
+        default:
+          colors.colorBlack;
+          break;
+      }
+    }};
   }
   .arrow__Right {
     position: relative;
@@ -111,7 +149,7 @@ const ButtonStyles = styled.button<ButtonProps>`
       case "BORDERED":
         return colors.colorBlack;
       case "BORDER-LESS_BLACK":
-        return colors.colorBlack;
+        return colors.colorLightBlack;
       case "BORDER-LESS_COLOURED":
         return colors.colorDarkPink;
       default:

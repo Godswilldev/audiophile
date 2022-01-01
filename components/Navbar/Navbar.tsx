@@ -65,6 +65,10 @@ const NavbarStyles = styled.nav`
         ${boldText}
         text-transform: uppercase;
         color: ${colors.colorWhite};
+        transition: all 0.3s;
+        &:hover {
+          color: ${colors.colorDarkPink};
+        }
       }
     }
   }
