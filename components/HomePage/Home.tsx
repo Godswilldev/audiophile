@@ -1,10 +1,10 @@
-import CategoryType from "../CategoryType/CategoryType";
+import CategoryGroup from "../CategoryType/CategoryGroup";
 
 const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <CategoryType />
+      <CategoryGroup />
     </div>
   );
 };

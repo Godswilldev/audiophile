@@ -1,23 +1,36 @@
 import Image from "next/image";
 import styled from "styled-components";
 import headphones from "../../assets/product-xx99-mark-one-headphones/desktop/image-removebg-preview(41).png";
+import speakers from "../../assets/shared/desktop/image-removebg-preview(38).png";
+import earphones from "../../assets/shared/desktop/image-removebg-preview(42).png";
+
 import oval from "../../assets/product-xx99-mark-one-headphones/desktop/Oval Copy 4.png";
 import { colors } from "../../Utils/Theme";
 import { h6 } from "../../Utils/Typography";
 import Button from "./../Buttons/Button";
-const CategoryType = () => {
+
+interface Type {
+  type: "headphones" | "speakers" | "earphones";
+}
+const CategoryType = ({ type }: Type) => {
+  let greg;
+  if (type === "headphones") {
+    greg = <Image alt="oval" src={headphones} />;
+  } else if (type === "speakers") {
+    greg = <Image alt="oval" src={speakers} />;
+  } else if (type === "earphones") {
+    greg = <Image alt="oval" src={earphones} />;
+  }
   return (
     <Category>
       <div className="headphone">
-        <span>
-          <Image alt="category image" src={headphones} />
-        </span>
+        <span>{greg}</span>
         <span className="oval">
           <Image alt="oval" src={oval} />
         </span>
       </div>
       <CategoryTypeStyles className="category">
-        <h1>Headphones</h1>
+        <h1>{type.toUpperCase()}</h1>
         <Button text="shop" variant="BORDER-LESS_BLACK" />
       </CategoryTypeStyles>
     </Category>
