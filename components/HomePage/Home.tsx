@@ -1,10 +1,10 @@
-import ProductPreview from "../ProductPreview/ProductPreview";
+import ProductPreviewGroup from "../ProductPreview/ProductPreviewGroup";
 
 const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <ProductPreview text="XX99 Mark 1" />
+      <ProductPreviewGroup />
     </div>
   );
 };
