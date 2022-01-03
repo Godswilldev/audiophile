@@ -27,9 +27,9 @@ const Navbar = () => {
 
         <ul className="nav__links">
           <Link href="/">Home</Link>
-          <Link href="/headphones">Headphones</Link>
-          <Link href="/speakers">Speakers</Link>
-          <Link href="/earphones">Earphones</Link>
+          <Link href="/category/headphones">Headphones</Link>
+          <Link href="/category/speakers">Speakers</Link>
+          <Link href="/category/earphones">Earphones</Link>
         </ul>
 
         <Image src={cart} alt="cart" />

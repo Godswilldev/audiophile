@@ -16,9 +16,9 @@ const Footer = () => {
 
           <ul className="footer__nav--links">
             <Link href="/">Home</Link>
-            <Link href="/headphones">Headphones</Link>
-            <Link href="/speakers">Speakers</Link>
-            <Link href="/earphones">Earphones</Link>
+            <Link href="/category/headphones">Headphones</Link>
+            <Link href="/category/speakers">Speakers</Link>
+            <Link href="/category/earphones">Earphones</Link>
           </ul>
         </div>
 
@@ -27,8 +27,8 @@ const Footer = () => {
             Audiophile is an all in one stop to fulfill your audio needs.
             We&apos;re a small team <br /> of music lovers and sound specialists
             who are devoted to helping you get the <br /> most out of personal
-            audio. Come and visit our demo facility - we&apos;re open 7 <br /> days a
-            week.
+            audio. Come and visit our demo facility - we&apos;re open 7 <br />{" "}
+            days a week.
           </p>
           <div className="footer__description--socialLinks">
             <span className="footer__description--socialLinks--link">

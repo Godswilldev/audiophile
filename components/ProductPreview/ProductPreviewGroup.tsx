@@ -5,13 +5,13 @@ const ProductPreviewGroup = () => {
   return (
     <ProductPreviewGroupStyles>
       <span>
-        <ProductPreview text="XX99 Mark 1" />
+        <ProductPreview text="XX99 Mark II" />
       </span>
       <span>
         <ProductPreview text="XX59" />
       </span>
       <span>
-        <ProductPreview text="ZX9 SPEAKER" />
+        <ProductPreview text="ZX9 Speaker" />
       </span>
     </ProductPreviewGroupStyles>
   );

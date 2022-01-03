@@ -5,14 +5,16 @@ import headphone from "../../assets/product-xx59-headphones/desktop/image-produc
 import earphone from "../../assets/product-zx9-speaker/desktop/image-product.jpg";
 import { h5 } from "../../Utils/Typography";
 import Button from "../Buttons/Button";
+import { useRouter } from "next/router";
 
 interface ProductPreviewProps {
-  text: "XX99 Mark 1" | "XX59" | "ZX9 SPEAKER";
+  text: "XX99 Mark II" | "XX59" | "ZX9 Speaker";
 }
 const ProductPreview = ({ text }: ProductPreviewProps) => {
+  const router = useRouter();
   let productType;
   switch (text) {
-    case "XX99 Mark 1":
+    case "XX99 Mark II":
       productType = <Image width={350} height={318} alt={text} src={speaker} />;
       break;
     case "XX59":
@@ -20,7 +22,7 @@ const ProductPreview = ({ text }: ProductPreviewProps) => {
         <Image width={350} height={318} alt={text} src={headphone} />
       );
       break;
-    case "ZX9 SPEAKER":
+    case "ZX9 Speaker":
       productType = (
         <Image width={350} height={318} alt={text} src={earphone} />
       );
@@ -34,8 +36,10 @@ const ProductPreview = ({ text }: ProductPreviewProps) => {
       <div className="product">
         <span className="product__img">{productType}</span>
         <span className="product__description">
-          <h1>{text}</h1>
-          <Button text="see product" variant="PINK_DARK" />
+          <h1>{text.toUpperCase()}</h1>
+          <span onClick={() => router.push(`/product/${text}`)}>
+            <Button text="see product" variant="PINK_DARK" />
+          </span>
         </span>
       </div>
     </ProductPreviewStyles>
