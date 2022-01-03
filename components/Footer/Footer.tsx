@@ -3,8 +3,10 @@ import Link from "next/link";
 import styled from "styled-components";
 import { colors } from "../../Utils/Theme";
 import logo from "../../assets/shared/desktop/logo.svg";
-import { boldText } from "../../Utils/Typography";
-
+import { body, boldText, h1 } from "../../Utils/Typography";
+import facebookIcon from "../../assets/shared/desktop/icon-facebook.svg";
+import instagramIcon from "../../assets/shared/desktop/icon-instagram.svg";
+import twitterIcon from "../../assets/shared/desktop/icon-twitter.svg";
 const Footer = () => {
   return (
     <FooterStyles>
@@ -18,6 +20,33 @@ const Footer = () => {
             <Link href="/speakers">Speakers</Link>
             <Link href="/earphones">Earphones</Link>
           </ul>
+        </div>
+
+        <div className="footer__description">
+          <p className="footer__description--text">
+            Audiophile is an all in one stop to fulfill your audio needs.
+            We&apos;re a small team <br /> of music lovers and sound specialists
+            who are devoted to helping you get the <br /> most out of personal
+            audio. Come and visit our demo facility - we’re open 7 <br /> days a
+            week.
+          </p>
+          <div className="footer__description--socialLinks">
+            <span className="footer__description--socialLinks--link">
+              <Image alt="footer social links" src={facebookIcon} />
+            </span>
+            <span className="footer__description--socialLinks--link">
+              <Image alt="footer social links" src={instagramIcon} />
+            </span>
+            <span className="footer__description--socialLinks--link">
+              <Image alt="footer social links" src={twitterIcon} />
+            </span>
+          </div>
+        </div>
+
+        <div className="footer__copyright">
+          <p className="footer__description--text">
+            Copyright 2021. All Rights Reserved
+          </p>
         </div>
       </div>
     </FooterStyles>
@@ -37,7 +66,6 @@ const FooterStyles = styled.section`
     width: 10.1rem;
     height: 0.4rem;
     background-color: ${colors.colorDarkPink};
-    /* color: #ff0000; */
     position: absolute;
   }
 
@@ -46,8 +74,7 @@ const FooterStyles = styled.section`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 5rem;
-      /* padding: 0 10rem; */
+      padding-top: 7rem;
 
       &--links {
         display: flex;
@@ -63,6 +90,26 @@ const FooterStyles = styled.section`
           }
         }
       }
+    }
+
+    &__description {
+      margin-top: 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      &--text {
+        ${body}
+      }
+
+      &--socialLinks {
+        &--link {
+          margin-right: 2rem;
+        }
+      }
+    }
+
+    &__copyright {
+      margin-top: 5rem;
     }
   }
 `;
