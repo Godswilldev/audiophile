@@ -47,11 +47,16 @@ export default ProductPreview;
 const ProductPreviewStyles = styled.div`
   .product {
     width: 35rem;
-    height: 47.1rem;
+    height: 47rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    &__img {
+      overflow: hidden;
+      border-radius: 0.8rem;
+      box-shadow: 0.3rem 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    }
 
     &__description {
       display: flex;

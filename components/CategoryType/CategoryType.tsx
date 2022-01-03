@@ -36,11 +36,15 @@ export default CategoryType;
 
 export const Category = styled.div`
   .category {
-    height: 28.4rem;
+    /* height: 28.4rem; */
     width: 35rem;
     display: grid;
     grid-template-rows: 8rem 20.4rem;
     grid-template-columns: 1fr;
+    box-shadow: 0rem 0.3rem 0rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 0.8rem;
+    border: none;
 
     &__icon {
       position: relative;
