@@ -3,21 +3,19 @@ import CategoryType from "./CategoryType";
 
 const CategoryGroup = () => {
   return (
-    <div>
-      <CategoryGroupStyles>
-        <span>
-          <CategoryType type="headphones" />
-        </span>
+    <CategoryGroupStyles>
+      <span>
+        <CategoryType type="headphones" />
+      </span>
 
-        <span>
-          <CategoryType type="speakers" />
-        </span>
+      <span>
+        <CategoryType type="speakers" />
+      </span>
 
-        <span>
-          <CategoryType type="earphones" />
-        </span>
-      </CategoryGroupStyles>
-    </div>
+      <span>
+        <CategoryType type="earphones" />
+      </span>
+    </CategoryGroupStyles>
   );
 };
 
@@ -27,4 +25,5 @@ const CategoryGroupStyles = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 `;

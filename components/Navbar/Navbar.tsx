@@ -49,6 +49,7 @@ const NavbarStyles = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  z-index: 99;
   .nav {
     display: flex;
     justify-content: space-around;

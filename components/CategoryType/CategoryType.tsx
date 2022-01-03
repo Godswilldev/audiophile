@@ -1,10 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
-import headphones from "../../assets/product-xx99-mark-one-headphones/desktop/image-removebg-preview(41).png";
-import speakers from "../../assets/shared/desktop/image-removebg-preview(38).png";
-import earphones from "../../assets/shared/desktop/image-removebg-preview(42).png";
-
-import oval from "../../assets/product-xx99-mark-one-headphones/desktop/Oval Copy 4.png";
+import headphones from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
+import earphones from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
+import speaker from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import { colors } from "../../Utils/Theme";
 import { h6 } from "../../Utils/Typography";
 import Button from "./../Buttons/Button";
@@ -15,24 +13,21 @@ interface Type {
 const CategoryType = ({ type }: Type) => {
   let greg;
   if (type === "headphones") {
-    greg = <Image alt="oval" src={headphones} />;
+    greg = <Image width={146} height={146} alt={type} src={headphones} />;
   } else if (type === "speakers") {
-    greg = <Image alt="oval" src={speakers} />;
+    greg = <Image width={146} height={146} alt={type} src={speaker} />;
   } else if (type === "earphones") {
-    greg = <Image alt="oval" src={earphones} />;
+    greg = <Image width={146} height={146} alt={type} src={earphones} />;
   }
   return (
     <Category>
-      <div className="headphone">
-        <span>{greg}</span>
-        <span className="oval">
-          <Image alt="oval" src={oval} />
-        </span>
+      <div className="category">
+        <div className="category__icon">{greg}</div>
+        <div className="category__description">
+          <h1>{type.toUpperCase()}</h1>
+          <Button text="shop" variant="BORDER-LESS_BLACK" />
+        </div>
       </div>
-      <CategoryTypeStyles className="category">
-        <h1>{type.toUpperCase()}</h1>
-        <Button text="shop" variant="BORDER-LESS_BLACK" />
-      </CategoryTypeStyles>
     </Category>
   );
 };
@@ -40,39 +35,30 @@ const CategoryType = ({ type }: Type) => {
 export default CategoryType;
 
 export const Category = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .category {
+    height: 28.4rem;
+    width: 35rem;
+    display: grid;
+    grid-template-rows: 8rem 20.4rem;
+    grid-template-columns: 1fr;
 
-  .headphone {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .oval {
-      position: absolute;
-      bottom: -5rem;
+    &__icon {
+      position: relative;
+      margin: 0 auto;
+      top: 2rem;
     }
-  }
-`;
 
-const CategoryTypeStyles = styled.div`
-  background-color: ${colors.colorDarkWhite};
-  border-radius: 0.8rem;
-  width: 35rem;
-  height: 20.4rem;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  flex-direction: column;
-  text-transform: uppercase;
-  padding-bottom: 1rem;
-  position: relative;
-  top: 12rem;
-  z-index: -1;
-
-  h1 {
-    ${h6}
+    &__description {
+      border-radius: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: end;
+      background-color: ${colors.colorDarkWhite};
+      padding-bottom: 3rem;
+      h1 {
+        ${h6}
+      }
+    }
   }
 `;

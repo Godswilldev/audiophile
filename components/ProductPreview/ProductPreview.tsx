@@ -5,7 +5,6 @@ import headphone from "../../assets/product-xx59-headphones/desktop/image-produc
 import earphone from "../../assets/product-zx9-speaker/desktop/image-product.jpg";
 import { h5 } from "../../Utils/Typography";
 import Button from "../Buttons/Button";
-// import speaker from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
 
 interface ProductPreviewProps {
   text: "XX99 Mark 1" | "XX59" | "ZX9 SPEAKER";
