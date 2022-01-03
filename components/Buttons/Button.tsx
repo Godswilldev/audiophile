@@ -48,7 +48,7 @@ const ButtonStyles = styled.button<ButtonProps>`
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 700;
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   &:active,
   :focus {
     transform: translateY(-0.1rem);
