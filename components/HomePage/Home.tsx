@@ -1,3 +1,4 @@
+import BestAudio from "../BestAudio/BestAudio";
 import ProductPreviewGroup from "../ProductPreview/ProductPreviewGroup";
 import CategoryGroup from "./../CategoryType/CategoryGroup";
 
@@ -7,7 +8,7 @@ const Home = () => {
       <h1>Home</h1>
       <div
         style={{
-          margin: "3rem 0",
+          margin: "3rem 1rem",
         }}
       >
         <CategoryGroup />
@@ -15,10 +16,18 @@ const Home = () => {
 
       <div
         style={{
-          margin: "3rem 0",
+          margin: "3rem 1rem",
         }}
       >
         <ProductPreviewGroup />
+      </div>
+
+      <div
+        style={{
+          margin: "3rem 1rem",
+        }}
+      >
+        <BestAudio />
       </div>
     </div>
   );
