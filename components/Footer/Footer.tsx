@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { colors } from "../../Utils/Theme";
 import logo from "../../assets/shared/desktop/logo.svg";
-import { body, boldText, h1 } from "../../Utils/Typography";
+import { body, boldText } from "../../Utils/Typography";
 import facebookIcon from "../../assets/shared/desktop/icon-facebook.svg";
 import instagramIcon from "../../assets/shared/desktop/icon-instagram.svg";
 import twitterIcon from "../../assets/shared/desktop/icon-twitter.svg";
@@ -27,7 +27,7 @@ const Footer = () => {
             Audiophile is an all in one stop to fulfill your audio needs.
             We&apos;re a small team <br /> of music lovers and sound specialists
             who are devoted to helping you get the <br /> most out of personal
-            audio. Come and visit our demo facility - we’re open 7 <br /> days a
+            audio. Come and visit our demo facility - we&apos;re open 7 <br /> days a
             week.
           </p>
           <div className="footer__description--socialLinks">
