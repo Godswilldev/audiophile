@@ -3,7 +3,21 @@ import ProductPreviewGroup from "../ProductPreview/ProductPreviewGroup";
 import CategoryGroup from "./../CategoryType/CategoryGroup";
 
 export interface NewProductProps {
-  newProducts: {}[];
+  newProducts: {
+    id: number;
+    slug: string;
+    name: string;
+    image: object;
+    category: string;
+    categoryImage: object;
+    new: true;
+    price: number;
+    description: string;
+    features: string;
+    includes: {}[];
+    gallery: object;
+    others: {}[];
+  }[];
 }
 const Home = ({ newProducts }: NewProductProps) => {
   return (
