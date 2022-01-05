@@ -4,19 +4,19 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../Hooks/useStoreHook";
 
 const Home: NextPage = () => {
-  const { handleGetProducts } = useAppDispatch();
-
-  const { products, loading, error } = useAppSelector(
-    ({ productsReducer }) => productsReducer
-  );
-
   useEffect(() => {
     handleGetProducts();
   }, []);
 
+  const { handleGetProducts } = useAppDispatch();
+
+  const { products } = useAppSelector(({ productsReducer }) => productsReducer);
+
+  const newProducts = products.filter((p) => p.new);
+
   return (
     <section>
-      <HomePage />
+      <HomePage newProducts={newProducts} />
     </section>
   );
 };

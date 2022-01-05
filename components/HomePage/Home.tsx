@@ -2,10 +2,16 @@ import BestAudio from "../BestAudio/BestAudio";
 import ProductPreviewGroup from "../ProductPreview/ProductPreviewGroup";
 import CategoryGroup from "./../CategoryType/CategoryGroup";
 
-const Home = () => {
+export interface NewProductProps {
+  newProducts: {}[];
+}
+const Home = ({ newProducts }: NewProductProps) => {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>NEW PRODUCTS: </h1>{" "}
+      {newProducts.map((product) => (
+        <h1 key={product.slug}>{product.name}</h1>
+      ))}
       <div
         style={{
           margin: "3rem 1rem",
@@ -13,7 +19,6 @@ const Home = () => {
       >
         <CategoryGroup />
       </div>
-
       <div
         style={{
           margin: "3rem 1rem",
@@ -21,7 +26,6 @@ const Home = () => {
       >
         <ProductPreviewGroup />
       </div>
-
       <div
         style={{
           margin: "3rem 1rem",
