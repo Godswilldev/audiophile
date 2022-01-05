@@ -4,13 +4,21 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk, logger))
-);
+const configureStore = () => {
+  const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk, logger))
+  );
 
-export type RootState = ReturnType<typeof store.getState>;
+  store.subscribe(() => {
+    window.localStorage.state = JSON.stringify(store.getState());
+  });
 
-export type AppDispatch = typeof store.dispatch;
+  return store;
+};
 
-export default store;
+export type RootState = ReturnType<typeof configureStore>;
+
+export type AppDispatch = typeof configureStore;
+
+export default configureStore();
