@@ -22,7 +22,7 @@ export interface NewProductProps {
 const Home = ({ newProducts }: NewProductProps) => {
   return (
     <div>
-      <h1>NEW PRODUCTS: </h1>{" "}
+      <h1>NEW PRODUCTS: </h1>
       {newProducts.map((product) => (
         <h1 key={product.slug}>{product.name}</h1>
       ))}
