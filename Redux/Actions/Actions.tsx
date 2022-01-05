@@ -18,7 +18,6 @@ const getProductsError = (error: any) => ({
 
 export const handleGetProducts = () => async (dispatch: AppDispatch) => {
   dispatch(getProducts());
-
   try {
     dispatch(getProductsSuccess(data));
   } catch (error) {
