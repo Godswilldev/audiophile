@@ -1,26 +1,27 @@
 import { ActionTypes } from "./ActionTypes";
 import { AppDispatch } from "../store/store";
-import data from "../../Utils/data.json";
+// import data from "../../Utils/data.js";
+import data from "../../Utils/data.js";
 
-// const getProducts = () => ({
-//   type: ActionTypes.GET_PRODUCTS,
-// });
+const getProducts = () => ({
+  type: ActionTypes.GET_PRODUCTS,
+});
 
 export const getProductsSuccess = (products: {}[]) => ({
   type: ActionTypes.GET_PRODUCTS_SUCCESS,
   payload: products,
 });
 
-// const getProductsError = (error: any) => ({
-//   type: ActionTypes.GET_PRODUCTS_ERROR,
-//   payload: error,
-// });
+const getProductsError = (error: any) => ({
+  type: ActionTypes.GET_PRODUCTS_ERROR,
+  payload: error,
+});
 
 export const handleGetProducts = () => async (dispatch: AppDispatch) => {
-  // dispatch(getProducts());
+  dispatch(getProducts());
   try {
     dispatch(getProductsSuccess(data));
   } catch (error) {
-    // dispatch(getProductsError(error));
+    dispatch(getProductsError(error));
   }
 };

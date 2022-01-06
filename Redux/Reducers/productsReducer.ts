@@ -1,8 +1,8 @@
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
 
 interface ProductsState {
-  // loading: boolean;
-  // error: string | null;
+  loading: boolean;
+  error: string | null;
   products: {
     id: number;
     slug: string;
@@ -21,8 +21,8 @@ interface ProductsState {
 }
 
 const initialState = {
-  // loading: true,
-  // error: null,
+  loading: true,
+  error: null,
   products: [],
 };
 
@@ -31,14 +31,14 @@ const productsReducer = (
   action: Actions
 ): ProductsState => {
   switch (action.type) {
-    // case ActionTypes.GET_PRODUCTS:
-    //   return { ...state, loading: true };
+    case ActionTypes.GET_PRODUCTS:
+      return { ...state, loading: true };
 
     case ActionTypes.GET_PRODUCTS_SUCCESS:
       return { ...state, products: action.payload };
 
-    // case ActionTypes.GET_PRODUCTS_ERROR:
-    //   return { ...state, loading: false, error: action.payload };
+    case ActionTypes.GET_PRODUCTS_ERROR:
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;
