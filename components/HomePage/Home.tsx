@@ -1,26 +1,13 @@
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { ProductsProps } from "../../Utils/interfaces";
 import BestAudio from "../BestAudio/BestAudio";
 import ProductPreviewGroup from "../ProductPreview/ProductPreviewGroup";
 import CategoryGroup from "./../CategoryType/CategoryGroup";
 
 export interface NewProductProps {
-  newProducts: {
-    id: number;
-    slug: string;
-    name: string;
-    image: object;
-    category: string;
-    categoryImage: object;
-    new: true;
-    price: number;
-    description: string;
-    features: string;
-    includes: {}[];
-    gallery: object;
-    others: {}[];
-  }[];
+  newProducts: ProductsProps;
 }
 const Home = ({ newProducts }: NewProductProps) => {
   return (

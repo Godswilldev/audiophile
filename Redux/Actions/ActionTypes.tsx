@@ -1,3 +1,5 @@
+import { ProductsProps } from "../../Utils/interfaces";
+
 export enum ActionTypes {
   GET_PRODUCTS = "GET_PRODUCTS",
   GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS",
@@ -9,21 +11,7 @@ interface GetProducts {
 }
 interface GetProductsSuccess {
   type: ActionTypes.GET_PRODUCTS_SUCCESS;
-  payload: {
-    id: number;
-    slug: string;
-    name: string;
-    image: object;
-    category: string;
-    categoryImage: object;
-    new: true;
-    price: number;
-    description: string;
-    features: string;
-    includes: {}[];
-    gallery: object;
-    others: {}[];
-  }[];
+  payload: ProductsProps;
 }
 interface GetProductsError {
   type: ActionTypes.GET_PRODUCTS_ERROR;

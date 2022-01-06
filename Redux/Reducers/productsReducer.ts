@@ -1,23 +1,10 @@
+import { ProductsProps } from "../../Utils/interfaces";
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
 
 interface ProductsState {
   loading: boolean;
   error: string | null;
-  products: {
-    id: number;
-    slug: string;
-    name: string;
-    image: object;
-    category: string;
-    categoryImage: object;
-    new: true;
-    price: number;
-    description: string;
-    features: string;
-    includes: {}[];
-    gallery: object;
-    others: {}[];
-  }[];
+  products: ProductsProps;
 }
 
 const initialState = {
