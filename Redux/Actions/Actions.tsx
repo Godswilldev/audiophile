@@ -1,7 +1,6 @@
 import { ActionTypes } from "./ActionTypes";
 import { AppDispatch } from "../store/store";
-// import data from "../../Utils/data.js";
-import data from "../../Utils/data.js";
+import data from "../../Utils/data";
 
 const getProducts = () => ({
   type: ActionTypes.GET_PRODUCTS,

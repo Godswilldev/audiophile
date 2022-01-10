@@ -1,4 +1,4 @@
-import { ProductsProps } from "../../Utils/interfaces";
+import { ProductsProps } from "../../interfaces/interfaces";
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
 
 interface ProductsState {

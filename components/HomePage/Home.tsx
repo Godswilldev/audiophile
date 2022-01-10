@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ProductsProps } from "../../Utils/interfaces";
+import { ProductsProps } from "../../interfaces/interfaces";
 import BestAudio from "../BestAudio/BestAudio";
 import ProductPreviewGroup from "../ProductPreview/ProductPreviewGroup";
 import CategoryGroup from "./../CategoryType/CategoryGroup";

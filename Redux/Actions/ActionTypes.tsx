@@ -1,4 +1,4 @@
-import { ProductsProps } from "../../Utils/interfaces";
+import { ProductsProps } from "../../interfaces/interfaces";
 
 export enum ActionTypes {
   GET_PRODUCTS = "GET_PRODUCTS",
