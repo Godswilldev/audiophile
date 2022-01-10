@@ -1,6 +1,6 @@
-const yx1Desktop = require("../assets/product-yx1-earphones/desktop/image-product.jpg");
-const mark2 = require("../assets/product-xx99-mark-two-headphones/desktop/image-product.jpg");
-const zx9 = require("../assets/product-zx9-speaker/desktop/image-product.jpg");
+const yx1Desktop = require("../assets/shared/desktop/image-category-thumbnail-earphones.png");
+const mark2 = require("../assets/shared/desktop/image-category-thumbnail-headphones.png");
+const zx9 = require("../assets/shared/desktop/image-category-thumbnail-speakers.png");
 
 const data = [
   {
