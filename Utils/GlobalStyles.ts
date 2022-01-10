@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import { device } from "./MediaQueries";
-// import { colors } from "./Theme";
 
 export const Global = createGlobalStyle`
   *,
