@@ -81,7 +81,7 @@ const SwiperjsCarouselStyles = styled.div`
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      top: 5rem;
+      top: 7rem;
 
       p {
         ${lightText}
@@ -92,6 +92,7 @@ const SwiperjsCarouselStyles = styled.div`
         ${h1}
         left: 0;
         margin-bottom: 3rem;
+        text-transform: uppercase;
       }
       h2 {
         ${body}
@@ -106,8 +107,8 @@ const SwiperjsCarouselStyles = styled.div`
       display: flex;
       justify-content: end;
       align-items: flex-end;
-      /* position: relative;
-      top: 10rem; */
+      position: relative;
+      top: 5rem;
     }
   }
   .swiper {
@@ -116,29 +117,19 @@ const SwiperjsCarouselStyles = styled.div`
   }
 
   .swiper-slide {
-    /* text-align: center; */
-    /* font-size: 18px; */
-    /* display: -webkit-box;
+    display: -webkit-box;
     display: -ms-flexbox;
-    display: -webkit-flex; */
+    display: -webkit-flex;
     display: flex;
     align-items: flex-end;
-    /* -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center; */
-    /* align-items: center; */
   }
-  /* 
+
   .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  } */
+  }
 
   .mySwiper {
     width: 80vw;

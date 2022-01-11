@@ -63,6 +63,7 @@ const BEstAudioStyles = styled.section`
       width: 54rem;
       height: 58.8rem;
       border-radius: 0.8rem;
+      overflow: hidden;
     }
   }
 `;
