@@ -8,16 +8,15 @@ import Button from "./../Buttons/Button";
 const Zx7Speaker = () => {
   return (
     <Zx7SpeakerStyles>
-      <div className="zx7__Image" >
+      <div className="zx7__Image">
         <Image src={Zx7Speak} alt="Zx7Speak" />
       </div>
-      
-      <div
-        className="zx7__text"
-        onClick={() => Router.push("/product/zx7-speaker")}
-      >
+
+      <div className="zx7__text">
         <h1>ZX7 SPEAKER</h1>
-        <Button text="see product" variant="BLACK" />
+        <span onClick={() => Router.push("/product/zx7-speaker")}>
+          <Button text="see product" variant="BLACK" />
+        </span>
       </div>
     </Zx7SpeakerStyles>
   );
@@ -39,10 +38,12 @@ const Zx7SpeakerStyles = styled.div`
   }
 
   .zx7__text {
-    position: absolute;
+    position: relative;
+    bottom: 25rem;
     left: 10rem;
-    top: 10rem;
+
     h1 {
+      z-index: 1000;
       ${h4}
       margin-bottom: 2rem;
     }

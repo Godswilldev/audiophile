@@ -1,12 +1,12 @@
 import { ProductsProps } from "../../interfaces/interfaces";
 import BestAudio from "../BestAudio/BestAudio";
-import ProductPreviewGroup from "../ProductPreview/ProductPreviewGroup";
 import CategoryGroup from "./../CategoryType/CategoryGroup";
 import styled from "styled-components";
 import SwiperjsCarousel from "../Carousel/SwiperjsCarousel";
 import { colors } from "./../../Utils/Theme";
 import Z9Speaker from "../Z9SPEAKER/Z9Speaker";
 import Zx7Speaker from "../ZX7SPEAKER/Zx7Speaker";
+import Yx1Earphone from "../Yx1Earphone/Yx1Earphone";
 export interface NewProductProps {
   newProducts: ProductsProps;
 }
@@ -18,13 +18,16 @@ const Home = ({ newProducts }: NewProductProps) => {
         <div>
           <CategoryGroup />
         </div>
-        <div className="body__z9Speaker">
+        <div className="component body__z9Speaker">
           <Z9Speaker />
         </div>
-        <div className="body__Zx7Speaker">
+        <div className="component body__Zx7Speaker">
           <Zx7Speaker />
         </div>
-        <div className="body__bestGear">
+        <div className="component body__bestGear">
+          <Yx1Earphone />
+        </div>
+        <div className="component body__bestGear">
           <BestAudio />
         </div>
       </div>
@@ -40,15 +43,7 @@ const HomeStyles = styled.div`
     width: 80vw;
     margin: 15rem auto;
 
-    &__z9Speaker {
-      margin-top: 20rem;
-    }
-
-    .body__Zx7Speaker {
-      margin-top: 20rem;
-    }
-
-    &__bestGear {
+    .component {
       margin-top: 20rem;
     }
   }
