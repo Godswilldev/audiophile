@@ -1,20 +1,20 @@
 import Image from "next/image";
 import Router from "next/router";
 import styled from "styled-components";
-import Zx7Speake from "../../assets/home/desktop/image-speaker-zx7.jpg";
+import Zx7Speak from "../../assets/home/desktop/image-speaker-zx7.jpg";
 import { h4 } from "../../Utils/Typography";
 import Button from "./../Buttons/Button";
 
 const Zx7Speaker = () => {
   return (
     <Zx7SpeakerStyles>
-      <div className="zx7__Image">
-        <Image height={320} src={Zx7Speake} alt="Zx7Speake" />
+      <div className="zx7__Image" >
+        <Image src={Zx7Speak} alt="Zx7Speak" />
       </div>
-
+      
       <div
         className="zx7__text"
-        onClick={() => Router.push("/product/zx7-pseaker")}
+        onClick={() => Router.push("/product/zx7-speaker")}
       >
         <h1>ZX7 SPEAKER</h1>
         <Button text="see product" variant="BLACK" />
@@ -28,12 +28,14 @@ export default Zx7Speaker;
 const Zx7SpeakerStyles = styled.div`
   position: relative;
   width: 100%;
-  height: 32rem;
+  height: 31rem;
   border-radius: 0.8rem;
   overflow: hidden;
+  border-radius: 0.8rem;
 
   .zx7__Image {
-    border-radius: 0.8rem;
+    height: 100%;
+    width: 100%;
   }
 
   .zx7__text {
