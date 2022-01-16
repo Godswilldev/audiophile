@@ -22,7 +22,7 @@ const productsReducer = (
       return { ...state, loading: true };
 
     case ActionTypes.GET_PRODUCTS_SUCCESS:
-      return { ...state, products: action.payload };
+      return { ...state, products: action.payload, loading: false };
 
     case ActionTypes.GET_PRODUCTS_ERROR:
       return { ...state, loading: false, error: action.payload };

@@ -6,7 +6,7 @@ const getProducts = () => ({
   type: ActionTypes.GET_PRODUCTS,
 });
 
-export const getProductsSuccess = (products: {}[]) => ({
+const getProductsSuccess = (products: {}[]) => ({
   type: ActionTypes.GET_PRODUCTS_SUCCESS,
   payload: products,
 });
@@ -24,3 +24,34 @@ export const handleGetProducts = () => async (dispatch: AppDispatch) => {
     dispatch(getProductsError(error));
   }
 };
+
+// category
+const getCategory = () => ({
+  type: ActionTypes.GET_CATEGORY,
+});
+
+const getCategorySuccess = (products: {}[]) => ({
+  type: ActionTypes.GET_CATEGORY_SUCCESS,
+  payload: products,
+});
+
+const getCategoryError = (error: any) => ({
+  type: ActionTypes.GET_CATEGORY_ERROR,
+  payload: error,
+});
+
+interface routeProps {
+  category: string | undefined | string[];
+}
+
+export const handleGetCategory =
+  ({ category }: routeProps) =>
+  async (dispatch: AppDispatch) => {
+    dispatch(getCategory());
+    try {
+      const res = data.filter((d) => d.category === category);
+      dispatch(getCategorySuccess(res));
+    } catch (error) {
+      dispatch(getCategoryError(error));
+    }
+  };
