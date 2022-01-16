@@ -4,22 +4,22 @@ import { colors } from "../../Utils/Theme";
 import { h2 } from "../../Utils/Typography";
 import { useAppDispatch, useAppSelector } from "../../Hooks/useStoreHook";
 import { useEffect, useState } from "react";
+import CategoryProduct from "../../components/CategoryProduct/CategoryProduct";
+import CategoryGroup from "../../components/CategoryType/CategoryGroup";
+import BestAudio from "../../components/BestAudio/BestAudio";
 
 const Category = () => {
   const router = useRouter();
-  const [routeName, setRouteName] = useState(router?.query?.category);
+  const routeName = router?.query?.category;
   const { handleGetCategory } = useAppDispatch();
-
   useEffect(() => {
-    setRouteName(router?.query?.category);
-    routeName !== "" && handleGetCategory({ category: routeName });
-  }, []);
+    routeName && handleGetCategory({ category: routeName });
+  }, [routeName]);
 
   const { category, loading } = useAppSelector(
     ({ categoryReducer }) => categoryReducer
   );
 
-  console.log(router);
   console.log(routeName);
 
   return (
@@ -28,7 +28,18 @@ const Category = () => {
         {loading && <h1>loading...</h1>}
         <h1>{routeName}</h1>
       </div>
-      <div className="category__products"></div>
+
+      <div className="category__products">
+        {category.map((cat) => (
+          <div key={cat.slug}>
+            <CategoryProduct cat={cat} />
+          </div>
+        ))}
+      </div>
+      <div>
+        <CategoryGroup />
+        <BestAudio />
+      </div>
     </CategoryStyles>
   );
 };
