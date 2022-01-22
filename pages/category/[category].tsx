@@ -12,6 +12,7 @@ const Category = () => {
   const router = useRouter();
   const routeName = router?.query?.category;
   const { handleGetCategory } = useAppDispatch();
+
   useEffect(() => {
     routeName && handleGetCategory({ category: routeName });
   }, [routeName]);
@@ -19,8 +20,6 @@ const Category = () => {
   const { category, loading } = useAppSelector(
     ({ categoryReducer }) => categoryReducer
   );
-
-  console.log(routeName);
 
   return (
     <CategoryStyles>
