@@ -10,8 +10,6 @@ export enum ActionTypes {
   ADD_TO_CART = "ADD_TO_CART",
   ADD_TO_CART_SUCCESS = "ADD_TO_CART_SUCCESS",
   ADD_TO_CART_ERROR = "ADD_TO_CART_ERROR",
-  INCREMENT_QUANTITY = "INCREMENT_QUANTITY",
-  DECREMENT_QUANTITY = "DECREMENT_QUANTITY",
 }
 
 // Products
@@ -24,7 +22,7 @@ type GetProductsSuccess = {
 };
 type GetProductsError = {
   type: ActionTypes.GET_PRODUCTS_ERROR;
-  payload: string;
+  payload: any;
 };
 
 // Category
@@ -37,7 +35,7 @@ type GetCategorySuccess = {
 };
 type GetCategoryError = {
   type: ActionTypes.GET_CATEGORY_ERROR;
-  payload: string;
+  payload: any;
 };
 
 // cart
@@ -47,23 +45,13 @@ type AddToCart = {
 
 type AddToCartSuccess = {
   type: ActionTypes.ADD_TO_CART_SUCCESS;
-  payload: ProductsProps;
+  payload: any;
 };
 
 type AddToCartError = {
   type: ActionTypes.ADD_TO_CART_ERROR;
-  payload: string;
+  payload: any;
 };
-
-// interface IncrementQuantity {
-//   type: ActionTypes.INCREMENT_QUANTITY;
-//   payload: CartProductType;
-// }
-
-// interface DecrementQuantity {
-//   type: ActionTypes.DECREMENT_QUANTITY;
-//   payload: CartProductType;
-// }
 
 export type Actions =
   | GetProducts

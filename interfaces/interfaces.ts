@@ -40,3 +40,7 @@ export type ProductsProps = {
     third: { desktop: any };
   };
 }[];
+
+export type CartProps = {
+  productName: string;
+};

@@ -3,26 +3,20 @@ import { AppDispatch } from "../store/store";
 import data from "../../Utils/data";
 import { ProductsProps } from "../../interfaces/interfaces";
 
-const getProducts = () => ({
-  type: ActionTypes.GET_PRODUCTS,
-});
-
-const getProductsSuccess = (products: ProductsProps) => ({
-  type: ActionTypes.GET_PRODUCTS_SUCCESS,
-  payload: products,
-});
-
-const getProductsError = (error: any) => ({
-  type: ActionTypes.GET_PRODUCTS_ERROR,
-  payload: error,
-});
-
 export const handleGetProducts = () => async (dispatch: AppDispatch) => {
-  dispatch(getProducts());
+  dispatch({
+    type: ActionTypes.GET_PRODUCTS,
+  });
   try {
-    dispatch(getProductsSuccess(data));
+    dispatch({
+      type: ActionTypes.GET_PRODUCTS_SUCCESS,
+      payload: data,
+    });
   } catch (error) {
-    dispatch(getProductsError(error));
+    dispatch({
+      type: ActionTypes.GET_PRODUCTS_ERROR,
+      payload: error,
+    });
   }
 };
 
@@ -48,40 +42,24 @@ interface routeProps {
 export const handleGetCategory =
   ({ category }: routeProps) =>
   async (dispatch: AppDispatch) => {
-    dispatch(getCategory());
+    dispatch({
+      type: ActionTypes.GET_CATEGORY,
+    });
     try {
       const res = data.filter((d) => d.category === category);
-      dispatch(getCategorySuccess(res));
+      dispatch({
+        type: ActionTypes.GET_CATEGORY_SUCCESS,
+        payload: res,
+      });
     } catch (error) {
-      dispatch(getCategoryError(error));
+      dispatch({
+        type: ActionTypes.GET_CATEGORY_ERROR,
+        payload: error,
+      });
     }
   };
 
 // cart
-
-const addToCart = () => ({
-  type: ActionTypes.ADD_TO_CART,
-});
-
-const addToCartSuccess = (cartProduct: cartProps) => ({
-  type: ActionTypes.ADD_TO_CART_SUCCESS,
-  payload: cartProduct,
-});
-
-const addToCartError = (error: any) => ({
-  type: ActionTypes.ADD_TO_CART_ERROR,
-  payload: error,
-});
-
-// const incrementQuantity = (cartProduct: CartProductType) => ({
-//   type: ActionTypes.INCREMENT_QUANTITY,
-//   payload: cartProduct,
-// });
-
-// const decrementQuantity = (cartProduct: CartProductType) => ({
-//   type: ActionTypes.DECREMENT_QUANTITY,
-//   payload: cartProduct,
-// });
 
 type cartProps = {
   productSlug: string;
@@ -90,14 +68,18 @@ type cartProps = {
 export const handleAddToCart =
   ({ productSlug }: cartProps) =>
   async (dispatch: AppDispatch) => {
-    dispatch(addToCart());
+    dispatch({
+      type: ActionTypes.ADD_TO_CART,
+    });
     try {
-      dispatch(
-        addToCartSuccess({
-          productSlug,
-        })
-      );
+      dispatch({
+        type: ActionTypes.ADD_TO_CART_SUCCESS,
+        payload: productSlug,
+      });
     } catch (error) {
-      dispatch(addToCartError(error));
+      dispatch({
+        type: ActionTypes.ADD_TO_CART_ERROR,
+        payload: error,
+      });
     }
   };

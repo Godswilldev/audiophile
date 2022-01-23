@@ -1,19 +1,15 @@
-interface ActionTypes {
-  type: string;
-}
+import { Actions, ActionTypes } from "../Actions/ActionTypes";
 
-interface cartType {
-  cart: {}[];
-}
-
-const initialState: cartType = {
+const initialState = {
+  loading: false,
+  error: null,
   cart: [],
 };
-const cartReducer = (state = initialState, action: ActionTypes) => {
+const cartReducer = (state = initialState, action: Actions) => {
   switch (action.type) {
-    case "ACTION_TYPE_1":
+    case ActionTypes.ADD_TO_CART:
       return { ...state };
-    case "ACTION_TYPE_2":
+    case ActionTypes.ADD_TO_CART_SUCCESS:
       return state;
     default:
       return state;
