@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { Product } from "../../interfaces/interfaces";
+import { ProductsProps } from "../../interfaces/interfaces";
 import Button from "../Buttons/Button";
 import Router from "next/router";
 
 type categoryProps = {
-  cat: Product;
+  cat: ProductsProps;
 };
 
 const CategoryProduct = ({ cat }: categoryProps) => {

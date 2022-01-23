@@ -7,40 +7,71 @@ export enum ActionTypes {
   GET_CATEGORY = "GET_CATEGORY",
   GET_CATEGORY_SUCCESS = "GET_CATEGORY_SUCCESS",
   GET_CATEGORY_ERROR = "GET_CATEGORY_ERROR",
+  ADD_TO_CART = "ADD_TO_CART",
+  ADD_TO_CART_SUCCESS = "ADD_TO_CART_SUCCESS",
+  ADD_TO_CART_ERROR = "ADD_TO_CART_ERROR",
+  INCREMENT_QUANTITY = "INCREMENT_QUANTITY",
+  DECREMENT_QUANTITY = "DECREMENT_QUANTITY",
 }
 
 // Products
-interface GetProducts {
+type GetProducts = {
   type: ActionTypes.GET_PRODUCTS;
-}
-interface GetProductsSuccess {
+};
+type GetProductsSuccess = {
   type: ActionTypes.GET_PRODUCTS_SUCCESS;
   payload: ProductsProps;
-}
-interface GetProductsError {
+};
+type GetProductsError = {
   type: ActionTypes.GET_PRODUCTS_ERROR;
   payload: string;
-}
+};
 
 // Category
-interface GetCategory {
+type GetCategory = {
   type: ActionTypes.GET_CATEGORY;
-}
-interface GetCategorySuccess {
+};
+type GetCategorySuccess = {
   type: ActionTypes.GET_CATEGORY_SUCCESS;
   payload: ProductsProps;
-}
-interface GetCategoryError {
+};
+type GetCategoryError = {
   type: ActionTypes.GET_CATEGORY_ERROR;
   payload: string;
-}
+};
+
+// cart
+type AddToCart = {
+  type: ActionTypes.ADD_TO_CART;
+};
+
+type AddToCartSuccess = {
+  type: ActionTypes.ADD_TO_CART_SUCCESS;
+  payload: ProductsProps;
+};
+
+type AddToCartError = {
+  type: ActionTypes.ADD_TO_CART_ERROR;
+  payload: string;
+};
+
+// interface IncrementQuantity {
+//   type: ActionTypes.INCREMENT_QUANTITY;
+//   payload: CartProductType;
+// }
+
+// interface DecrementQuantity {
+//   type: ActionTypes.DECREMENT_QUANTITY;
+//   payload: CartProductType;
+// }
 
 export type Actions =
-  // products
   | GetProducts
   | GetProductsSuccess
   | GetProductsError
-  // category
   | GetCategory
   | GetCategorySuccess
-  | GetCategoryError;
+  | GetCategoryError
+  | AddToCart
+  | AddToCartSuccess
+  | AddToCartError;

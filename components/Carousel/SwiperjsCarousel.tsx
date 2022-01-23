@@ -20,8 +20,8 @@ const SwiperjsCarousel = ({ newProducts }: NewProductProps) => {
   return (
     <SwiperjsCarouselStyles>
       <Swiper
-        // spaceBetween={30}
-        // centeredSlides={true}
+        spaceBetween={100}
+        centeredSlides={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,

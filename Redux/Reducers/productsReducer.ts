@@ -1,13 +1,13 @@
 import { ProductsProps } from "../../interfaces/interfaces";
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
 
-interface ProductsState {
+type ProductsState = {
   loading: boolean;
   error: string | null;
   products: ProductsProps;
-}
+};
 
-const initialState = {
+const initialState: ProductsState = {
   loading: true,
   error: null,
   products: [],
@@ -22,7 +22,7 @@ const productsReducer = (
       return { ...state, loading: true };
 
     case ActionTypes.GET_PRODUCTS_SUCCESS:
-      return { ...state, products: action.payload, loading: false };
+      return { ...state, loading: false, products: action.payload };
 
     case ActionTypes.GET_PRODUCTS_ERROR:
       return { ...state, loading: false, error: action.payload };

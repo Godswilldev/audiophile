@@ -11,7 +11,6 @@ const Home: NextPage = () => {
   const { handleGetProducts } = useAppDispatch();
 
   const { products } = useAppSelector(({ productsReducer }) => productsReducer);
-
   const newProducts = products.filter((p) => p.new);
 
   return (

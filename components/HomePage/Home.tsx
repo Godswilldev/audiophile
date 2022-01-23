@@ -7,6 +7,7 @@ import { colors } from "./../../Utils/Theme";
 import Z9Speaker from "../Z9SPEAKER/Z9Speaker";
 import Zx7Speaker from "../ZX7SPEAKER/Zx7Speaker";
 import Yx1Earphone from "../Yx1Earphone/Yx1Earphone";
+
 export interface NewProductProps {
   newProducts: ProductsProps;
 }

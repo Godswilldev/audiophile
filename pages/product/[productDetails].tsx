@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useAppDispatch, useAppSelector } from "../../Hooks/useStoreHook";
 import { useEffect } from "react";
-import ProductPreview from "../../components/ProductPreview/ProductPreview";
 import Button from "../../components/Buttons/Button";
 
 const ProductDetail = () => {
@@ -30,7 +29,7 @@ const ProductDetail = () => {
       <p>{actualProduct?.features}</p>
       <p>${actualProduct?.price}</p>
 
-      {actualProduct?.includes.map((p) => (
+      {actualProduct?.including.map((p) => (
         <p key={p.item}>
           {p.quantity}X {p.item}
         </p>
