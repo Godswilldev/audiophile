@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { ProductsProps } from "../../interfaces/interfaces";
+import { ProductsProps, categoryProps } from "../../interfaces/interfaces";
 import Button from "../Buttons/Button";
 import Router from "next/router";
 
-type categoryProps = {
-  cat: ProductsProps;
+type categoryProp = {
+  cat: categoryProps;
 };
 
-const CategoryProduct = ({ cat }: categoryProps) => {
+const CategoryProduct = ({ cat }: categoryProp) => {
   return (
     <div>
       <div>
