@@ -1,4 +1,4 @@
-import { ProductsProps } from "../../interfaces/interfaces";
+import { CartProps, ProductsProps } from "../../interfaces/interfaces";
 
 export enum ActionTypes {
   GET_PRODUCTS = "GET_PRODUCTS",
@@ -45,7 +45,7 @@ type AddToCart = {
 
 type AddToCartSuccess = {
   type: ActionTypes.ADD_TO_CART_SUCCESS;
-  payload: any;
+  payload: CartProps;
 };
 
 type AddToCartError = {

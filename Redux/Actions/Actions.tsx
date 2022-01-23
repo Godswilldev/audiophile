@@ -1,7 +1,7 @@
 import { ActionTypes } from "./ActionTypes";
-import { AppDispatch } from "../store/store";
+import { AppDispatch, RootState } from "../store/store";
 import data from "../../Utils/data";
-import { ProductsProps } from "../../interfaces/interfaces";
+import { CartProps, ProductsProps } from "../../interfaces/interfaces";
 
 export const handleGetProducts = () => async (dispatch: AppDispatch) => {
   dispatch({
@@ -21,19 +21,6 @@ export const handleGetProducts = () => async (dispatch: AppDispatch) => {
 };
 
 // category
-const getCategory = () => ({
-  type: ActionTypes.GET_CATEGORY,
-});
-
-const getCategorySuccess = (products: ProductsProps) => ({
-  type: ActionTypes.GET_CATEGORY_SUCCESS,
-  payload: products,
-});
-
-const getCategoryError = (error: any) => ({
-  type: ActionTypes.GET_CATEGORY_ERROR,
-  payload: error,
-});
 
 interface routeProps {
   category: string | undefined | string[];
@@ -60,21 +47,17 @@ export const handleGetCategory =
   };
 
 // cart
-
-type cartProps = {
-  productSlug: string;
-};
-
 export const handleAddToCart =
-  ({ productSlug }: cartProps) =>
+  ({ productSlug, productName, price, quantity, image }: CartProps) =>
   async (dispatch: AppDispatch) => {
     dispatch({
       type: ActionTypes.ADD_TO_CART,
     });
+
     try {
       dispatch({
         type: ActionTypes.ADD_TO_CART_SUCCESS,
-        payload: productSlug,
+        payload: { productSlug, productName, price, quantity, image },
       });
     } catch (error) {
       dispatch({

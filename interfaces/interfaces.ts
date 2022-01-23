@@ -42,5 +42,9 @@ export type ProductsProps = {
 }[];
 
 export type CartProps = {
-  productName: string;
+  productSlug: string | undefined;
+  productName: string | undefined;
+  price: number | undefined;
+  quantity: number;
+  image: any;
 };
