@@ -2,29 +2,25 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { colors } from "../../Utils/Theme";
 import { h2 } from "../../Utils/Typography";
-import { useAppDispatch, useAppSelector } from "../../Hooks/useStoreHook";
-import { useEffect, useState } from "react";
+import { useAppSelector } from "../../Hooks/useStoreHook";
 import CategoryProduct from "../../components/CategoryProduct/CategoryProduct";
 import CategoryGroup from "../../components/CategoryType/CategoryGroup";
 import BestAudio from "../../components/BestAudio/BestAudio";
+import { ProductsProps } from "../../interfaces/interfaces";
 
 const Category = () => {
   const router = useRouter();
   const routeName = router?.query?.category;
-  const { handleGetCategory } = useAppDispatch();
 
-  useEffect(() => {
-    routeName && handleGetCategory({ category: routeName });
-  }, [routeName]);
+  const { products } = useAppSelector(({ productsReducer }) => productsReducer);
 
-  const { category, loading } = useAppSelector(
-    ({ categoryReducer }) => categoryReducer
+  const category = products.filter(
+    (product: ProductsProps) => product.category === routeName
   );
 
   return (
     <CategoryStyles>
       <div className="category__header">
-        {loading && <h1>loading...</h1>}
         <h1>{routeName}</h1>
       </div>
 
@@ -35,6 +31,7 @@ const Category = () => {
           </div>
         ))}
       </div>
+
       <div>
         <CategoryGroup />
         <BestAudio />

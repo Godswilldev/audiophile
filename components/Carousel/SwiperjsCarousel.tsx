@@ -8,15 +8,17 @@ import { ProductsProps } from "../../interfaces/interfaces";
 import styled from "styled-components";
 import { colors } from "../../Utils/Theme";
 import Button from "../Buttons/Button";
-import Link from "next/link";
 import Router from "next/router";
 import { body, h1, lightText } from "../../Utils/Typography";
+import { useAppSelector } from "../../Hooks/useStoreHook";
+
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-export interface NewProductProps {
-  newProducts: ProductsProps;
-}
-const SwiperjsCarousel = ({ newProducts }: NewProductProps) => {
+const SwiperjsCarousel = () => {
+  const { products } = useAppSelector(({ productsReducer }) => productsReducer);
+
+  const newProducts = products.filter((p: ProductsProps) => p.new);
+
   return (
     <SwiperjsCarouselStyles>
       <Swiper

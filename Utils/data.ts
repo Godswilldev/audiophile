@@ -2,6 +2,7 @@ const yx1Desktop = require("../assets/shared/desktop/image-category-thumbnail-ea
 const mark2 = require("../assets/shared/desktop/image-category-thumbnail-headphones.png");
 const zx9 = require("../assets/shared/desktop/image-category-thumbnail-speakers.png");
 
+
 const data = [
   {
     id: 1,

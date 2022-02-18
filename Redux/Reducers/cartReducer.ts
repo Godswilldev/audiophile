@@ -1,15 +1,15 @@
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
-import { CartProps } from "../../interfaces/interfaces";
+import { ProductsProps } from "../../interfaces/interfaces";
 
-type CartState = {
+interface CartState {
   loading: boolean;
   error: null | string;
-  cartProducts: CartProps[];
+  cartProducts: ProductsProps[];
   total: number;
   shipping: number;
   vat: number;
   grandTotal: number;
-};
+}
 
 const initialState: CartState = {
   loading: false,
@@ -38,6 +38,25 @@ const cartReducer = (
 
     case ActionTypes.ADD_TO_CART_ERROR:
       return { ...state, loading: false };
+
+    // case ActionTypes.UPDATE_QUANTITY:
+    //   const { productSlug, type } = action.payload;
+    //   let products = state.cartProducts;
+    //   let actualProduct = state.cartProducts.find(
+    //     (product) => product.productSlug === productSlug
+    //   );
+
+    //   switch (type) {
+    //     case "DECREMENT":
+    //       return {
+    //         ...state,
+    //       };
+    //     case "INCREMENT":
+    //       return { ...state };
+
+    //     default:
+    //       return { ...state };
+    //   }
 
     default:
       return state;

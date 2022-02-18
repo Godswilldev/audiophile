@@ -1,65 +1,34 @@
-import { CartProps, ProductsProps } from "../../interfaces/interfaces";
+import { ProductsProps } from "../../interfaces/interfaces";
 
 export enum ActionTypes {
-  GET_PRODUCTS = "GET_PRODUCTS",
-  GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS",
-  GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR",
-  GET_CATEGORY = "GET_CATEGORY",
-  GET_CATEGORY_SUCCESS = "GET_CATEGORY_SUCCESS",
-  GET_CATEGORY_ERROR = "GET_CATEGORY_ERROR",
   ADD_TO_CART = "ADD_TO_CART",
   ADD_TO_CART_SUCCESS = "ADD_TO_CART_SUCCESS",
   ADD_TO_CART_ERROR = "ADD_TO_CART_ERROR",
+  UPDATE_QUANTITY = "UPDATE_QUANTITY",
 }
 
-// Products
-type GetProducts = {
-  type: ActionTypes.GET_PRODUCTS;
-};
-type GetProductsSuccess = {
-  type: ActionTypes.GET_PRODUCTS_SUCCESS;
-  payload: ProductsProps;
-};
-type GetProductsError = {
-  type: ActionTypes.GET_PRODUCTS_ERROR;
-  payload: any;
-};
-
-// Category
-type GetCategory = {
-  type: ActionTypes.GET_CATEGORY;
-};
-type GetCategorySuccess = {
-  type: ActionTypes.GET_CATEGORY_SUCCESS;
-  payload: ProductsProps;
-};
-type GetCategoryError = {
-  type: ActionTypes.GET_CATEGORY_ERROR;
-  payload: any;
-};
-
 // cart
-type AddToCart = {
+interface AddToCart {
   type: ActionTypes.ADD_TO_CART;
-};
+}
 
-type AddToCartSuccess = {
+interface AddToCartSuccess {
   type: ActionTypes.ADD_TO_CART_SUCCESS;
-  payload: CartProps;
-};
+  payload: ProductsProps;
+}
 
-type AddToCartError = {
+interface AddToCartError {
   type: ActionTypes.ADD_TO_CART_ERROR;
   payload: any;
-};
+}
+
+interface UpdateQuantity {
+  type: ActionTypes.UPDATE_QUANTITY;
+  payload: ProductsProps;
+}
 
 export type Actions =
-  | GetProducts
-  | GetProductsSuccess
-  | GetProductsError
-  | GetCategory
-  | GetCategorySuccess
-  | GetCategoryError
   | AddToCart
   | AddToCartSuccess
-  | AddToCartError;
+  | AddToCartError
+  | UpdateQuantity;
