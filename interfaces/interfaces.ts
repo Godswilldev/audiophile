@@ -43,5 +43,5 @@ export interface ProductsProps {
 
 export type updateQtyProps = {
   type: "INCREMENT" | "DECREMENT";
-  productSlug: string;
+  id: string;
 };

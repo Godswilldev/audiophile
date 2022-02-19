@@ -12,7 +12,7 @@ const ProductDetail = () => {
     router?.query?.productDetails;
 
   const [quantity, setQuantity] = useState(1);
-  const { handleAddToCart } = useAppDispatch();
+  const { handleAddToCart, updateQuantity } = useAppDispatch();
 
   const { products } = useAppSelector(({ productsReducer }) => productsReducer);
   const { cartProducts } = useAppSelector(({ cartReducer }) => cartReducer);
@@ -26,23 +26,22 @@ const ProductDetail = () => {
       return;
     } else {
       if (
-        cartProducts
-          .map((product) => product.slug)
-          .includes(currentProduct.slug)
+        cartProducts.map((product) => product.id).includes(currentProduct.slug)
       ) {
-        toast(
-          `${currentProduct?.name} is already in cart, update the quantity instead`,
-          {
-            theme: "dark",
-            type: "error",
-            position: "top-left",
-            autoClose: 3000,
-          }
-        );
+        toast(<h1>{currentProduct?.name} is already in cart</h1>, {
+          theme: "dark",
+          type: "error",
+          position: "top-left",
+          autoClose: 3000,
+        });
         return;
       }
-      handleAddToCart(currentProduct);
-      toast(`${currentProduct?.name} has been added to cart`, {
+      handleAddToCart({
+        id: currentProduct.slug,
+        quantity,
+        product: currentProduct,
+      });
+      toast(<h1>{currentProduct?.name} added to cart</h1>, {
         theme: "dark",
         type: "success",
         position: "top-left",
@@ -53,9 +52,25 @@ const ProductDetail = () => {
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
+    if (currentProduct === undefined) {
+      return;
+    }
+    updateQuantity({
+      type: "INCREMENT",
+      id: currentProduct?.slug,
+    });
   };
+
   const handleDecrement = () => {
     quantity > 1 && setQuantity(quantity - 1);
+
+    if (currentProduct === undefined) {
+      return;
+    }
+    updateQuantity({
+      type: "DECREMENT",
+      id: currentProduct?.slug,
+    });
   };
 
   return (
@@ -93,10 +108,13 @@ const ProductDetail = () => {
           <ProductPreview text={product.name} image={undefined} />
         </div>
       ))} */}
+
       <button disabled={quantity === 1} onClick={handleDecrement}>
         <h1>-</h1>
       </button>
+
       <h1>{quantity}</h1>
+
       <button onClick={handleIncrement}>
         <h1>+</h1>
       </button>
@@ -109,12 +127,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-//  toast(
-//    `${currentProduct?.name} is already in cart, update the quantity instead`,
-//    {
-//      theme: "dark",
-//      type: "error",
-//      position: "top-left",
-//      autoClose: 3000,
-//    }
-//  );

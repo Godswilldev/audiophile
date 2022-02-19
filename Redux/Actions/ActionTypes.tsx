@@ -1,4 +1,5 @@
-import { ProductsProps } from "../../interfaces/interfaces";
+import { ProductsProps, updateQtyProps } from "../../interfaces/interfaces";
+import { cartProductType } from "../Reducers/cartReducer";
 
 export enum ActionTypes {
   ADD_TO_CART = "ADD_TO_CART",
@@ -14,7 +15,7 @@ interface AddToCart {
 
 interface AddToCartSuccess {
   type: ActionTypes.ADD_TO_CART_SUCCESS;
-  payload: ProductsProps;
+  payload: cartProductType;
 }
 
 interface AddToCartError {
@@ -24,7 +25,7 @@ interface AddToCartError {
 
 interface UpdateQuantity {
   type: ActionTypes.UPDATE_QUANTITY;
-  payload: ProductsProps;
+  payload: updateQtyProps;
 }
 
 export type Actions =

@@ -1,10 +1,16 @@
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
 import { ProductsProps } from "../../interfaces/interfaces";
 
+export interface cartProductType {
+  id: string;
+  quantity: number;
+  product: ProductsProps;
+}
+
 interface CartState {
   loading: boolean;
   error: null | string;
-  cartProducts: ProductsProps[];
+  cartProducts: cartProductType[];
   total: number;
   shipping: number;
   vat: number;
@@ -39,24 +45,44 @@ const cartReducer = (
     case ActionTypes.ADD_TO_CART_ERROR:
       return { ...state, loading: false };
 
-    // case ActionTypes.UPDATE_QUANTITY:
-    //   const { productSlug, type } = action.payload;
-    //   let products = state.cartProducts;
-    //   let actualProduct = state.cartProducts.find(
-    //     (product) => product.productSlug === productSlug
-    //   );
+    case ActionTypes.UPDATE_QUANTITY:
+      const productId = action.payload.id;
 
-    //   switch (type) {
-    //     case "DECREMENT":
-    //       return {
-    //         ...state,
-    //       };
-    //     case "INCREMENT":
-    //       return { ...state };
+      const updateType = action.payload.type;
 
-    //     default:
-    //       return { ...state };
-    //   }
+      let currentProduct = state.cartProducts.find(
+        (product) => product.id === productId
+      );
+
+      switch (currentProduct) {
+        case undefined:
+          return state;
+
+        default:
+          switch (updateType) {
+            case "INCREMENT":
+              const updatedCart1 = state.cartProducts.filter(
+                (p) => p.id !== productId
+              );
+              currentProduct.quantity = currentProduct?.quantity + 1;
+              return {
+                ...state,
+                cartProducts: [...updatedCart1, currentProduct],
+              };
+
+            case "DECREMENT":
+              const updatedCart2 = state.cartProducts.filter(
+                (p) => p.id !== productId
+              );
+              currentProduct.quantity = currentProduct?.quantity - 1;
+              return {
+                ...state,
+                cartProducts: [...updatedCart2, currentProduct],
+              };
+            default:
+              break;
+          }
+      }
 
     default:
       return state;

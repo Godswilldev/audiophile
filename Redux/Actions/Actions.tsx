@@ -1,10 +1,11 @@
 import { ActionTypes } from "./ActionTypes";
 import { AppDispatch } from "../store/store";
-import { ProductsProps } from "../../interfaces/interfaces";
+import { ProductsProps, updateQtyProps } from "../../interfaces/interfaces";
+import { cartProductType } from "../Reducers/cartReducer";
 
 // cart
 export const handleAddToCart =
-  (product: ProductsProps) => async (dispatch: AppDispatch) => {
+  (product: cartProductType) => async (dispatch: AppDispatch) => {
     dispatch({
       type: ActionTypes.ADD_TO_CART,
     });
@@ -22,9 +23,9 @@ export const handleAddToCart =
     }
   };
 
-// export const updateQuantity =
-//   (product: updateQtyProps) => async (dispatch: AppDispatch) =>
-//     dispatch({
-//       type: ActionTypes.UPDATE_QUANTITY,
-//       payload: product,
-//     });
+export const updateQuantity =
+  (product: updateQtyProps) => async (dispatch: AppDispatch) =>
+    dispatch({
+      type: ActionTypes.UPDATE_QUANTITY,
+      payload: product,
+    });
