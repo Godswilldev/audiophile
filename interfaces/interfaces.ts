@@ -2,30 +2,33 @@ export interface ProductsProps {
   id: number;
   slug: string;
   name: string;
+
   image: {
-    mobile: string;
-    tablet: string;
-    desktop: any;
+    mobile: StaticImageData | string;
+    tablet: StaticImageData | string;
+    desktop: StaticImageData | string;
   };
+
   category: string;
 
   categoryImage: {
-    mobile: string;
-    tablet: string;
-    desktop: any;
+    mobile: StaticImageData | string;
+    tablet: StaticImageData | string;
+    desktop: StaticImageData | string;
   };
 
   new: boolean;
   price: number;
   description: string;
   features: string;
+
   others: {
     slug: string;
     name: string;
     image: {
-      mobile: any;
-      tablet: any;
-      desktop: any;
+      mobile: StaticImageData | string;
+      tablet: StaticImageData | string;
+      desktop: StaticImageData | string;
     };
   }[];
 
@@ -35,10 +38,28 @@ export interface ProductsProps {
   }[];
 
   gallery: {
-    first: { desktop: any };
-    second: { desktop: any };
-    third: { desktop: any };
+    first: {
+      desktop: StaticImageData | string;
+      tablet: StaticImageData | string;
+      mobile: StaticImageData | string;
+    };
+    second: {
+      desktop: StaticImageData | string;
+      tablet: StaticImageData | string;
+      mobile: StaticImageData | string;
+    };
+    third: {
+      desktop: StaticImageData | string;
+      tablet: StaticImageData | string;
+      mobile: StaticImageData | string;
+    };
   };
+}
+
+export interface ProductsState {
+  loading: boolean;
+  error: string | null;
+  products: ProductsProps[];
 }
 
 export type updateQtyProps = {
@@ -50,4 +71,14 @@ export interface cartProductType {
   id: string;
   quantity: number;
   product: ProductsProps;
+}
+
+export interface CartState {
+  loading: boolean;
+  error: null | string;
+  cartProducts: cartProductType[];
+  total: number;
+  shipping: number;
+  vat: number;
+  grandTotal: number;
 }

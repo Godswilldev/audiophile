@@ -1,15 +1,5 @@
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
-import { cartProductType, ProductsProps } from "../../interfaces/interfaces";
-
-interface CartState {
-  loading: boolean;
-  error: null | string;
-  cartProducts: cartProductType[];
-  total: number;
-  shipping: number;
-  vat: number;
-  grandTotal: number;
-}
+import { CartState } from "../../interfaces/interfaces";
 
 const initialState: CartState = {
   loading: false,
