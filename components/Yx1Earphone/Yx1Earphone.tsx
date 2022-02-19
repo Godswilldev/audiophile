@@ -14,8 +14,8 @@ const Yx1Earphone = () => {
       </div>
 
       <div className="yx1__text">
-        <h1>YX1 SPEAKER</h1>
-        <span onClick={() => Router.push("/product/yx1-speaker")}>
+        <h1>YX1 EARPHONES</h1>
+        <span onClick={() => Router.push("/product/yx1-earphones")}>
           <Button text="see product" variant="BORDERED" />
         </span>
       </div>

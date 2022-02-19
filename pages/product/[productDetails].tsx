@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from "../../components/Buttons/Button";
 import { ToastContainer, toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "../../Hooks/useStoreHook";
+import ProductPreview from "../../components/ProductPreview/ProductPreview";
 
 const ProductDetail = () => {
   const router = useRouter();
@@ -76,7 +77,7 @@ const ProductDetail = () => {
   return (
     <div>
       <ToastContainer newestOnTop={true} />
-      {/* <Image src={currentProduct?.image.desktop} alt={`${routeName} image`} /> */}
+      <Image src={currentProduct?.image.desktop} alt={`${routeName} image`} />
       {currentProduct?.new && <h3>New Product</h3>}
       <h1>{currentProduct?.name}</h1>
       <p>{currentProduct?.description}</p>
@@ -90,7 +91,7 @@ const ProductDetail = () => {
         </p>
       ))}
 
-      {/* <Image
+      <Image
         src={currentProduct?.gallery.first.desktop}
         alt={`${routeName} image`}
       />
@@ -101,13 +102,17 @@ const ProductDetail = () => {
       <Image
         src={currentProduct?.gallery.third.desktop}
         alt={`${routeName} image`}
-      /> */}
+      />
       <h1>You May Also Like</h1>
-      {/* {currentProduct?.others.map((product) => (
+      {currentProduct?.others.map((product) => (
         <div key={product.name}>
-          <ProductPreview text={product.name} image={undefined} />
+          <ProductPreview
+            slug={product.slug}
+            text={product.name}
+            image={product.image.desktop}
+          />
         </div>
-      ))} */}
+      ))}
 
       <button disabled={quantity === 1} onClick={handleDecrement}>
         <h1>-</h1>

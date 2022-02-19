@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { ProductsProps, categoryProps } from "../../interfaces/interfaces";
+import { ProductsProps } from "../../interfaces/interfaces";
 import Button from "../Buttons/Button";
 import Router from "next/router";
 
 type categoryProp = {
-  cat: categoryProps;
+  cat: ProductsProps;
 };
 
 const CategoryProduct = ({ cat }: categoryProp) => {
   return (
     <div>
       <div>
-        {/* <Image src={cat.image.desktop} alt={`${cat.name} image`} /> */}
+        <Image src={cat.image.desktop} alt={`${cat.name} image`} />
       </div>
       <div>
         {cat.new && <h3>New Product</h3>}

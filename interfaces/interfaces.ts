@@ -4,17 +4,17 @@ export interface ProductsProps {
   name: string;
 
   image: {
-    mobile: StaticImageData | string;
-    tablet: StaticImageData | string;
-    desktop: StaticImageData | string;
+    mobile: StaticImageData | any | string;
+    tablet: StaticImageData | any | string;
+    desktop: StaticImageData | any | string;
   };
 
   category: string;
 
   categoryImage: {
-    mobile: StaticImageData | string;
-    tablet: StaticImageData | string;
-    desktop: StaticImageData | string;
+    mobile: StaticImageData | any | string;
+    tablet: StaticImageData | any | string;
+    desktop: StaticImageData | any | string;
   };
 
   new: boolean;
@@ -26,9 +26,9 @@ export interface ProductsProps {
     slug: string;
     name: string;
     image: {
-      mobile: StaticImageData | string;
-      tablet: StaticImageData | string;
-      desktop: StaticImageData | string;
+      mobile: StaticImageData | any | string;
+      tablet: StaticImageData | any | string;
+      desktop: StaticImageData | any | string;
     };
   }[];
 
@@ -39,19 +39,19 @@ export interface ProductsProps {
 
   gallery: {
     first: {
-      desktop: StaticImageData | string;
-      tablet: StaticImageData | string;
-      mobile: StaticImageData | string;
+      desktop: StaticImageData | any | string;
+      tablet: StaticImageData | any | string;
+      mobile: StaticImageData | any | string;
     };
     second: {
-      desktop: StaticImageData | string;
-      tablet: StaticImageData | string;
-      mobile: StaticImageData | string;
+      desktop: StaticImageData | any | string;
+      tablet: StaticImageData | any | string;
+      mobile: StaticImageData | any | string;
     };
     third: {
-      desktop: StaticImageData | string;
-      tablet: StaticImageData | string;
-      mobile: StaticImageData | string;
+      desktop: StaticImageData | any | string;
+      tablet: StaticImageData | any | string;
+      mobile: StaticImageData | any | string;
     };
   };
 }

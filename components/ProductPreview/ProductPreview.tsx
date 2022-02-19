@@ -7,9 +7,10 @@ import { useRouter } from "next/router";
 interface ProductPreviewProps {
   text: string;
   image: any;
+  slug: string;
 }
 
-const ProductPreview = ({ text, image }: ProductPreviewProps) => {
+const ProductPreview = ({ text, image, slug }: ProductPreviewProps) => {
   const router = useRouter();
 
   return (
@@ -20,7 +21,7 @@ const ProductPreview = ({ text, image }: ProductPreviewProps) => {
         </span>
         <span className="product__description">
           <h1>{text.toUpperCase()}</h1>
-          <span onClick={() => router.push(`/product/${text}`)}>
+          <span onClick={() => router.push(`/product/${slug}`)}>
             <Button text="see product" variant="PINK_DARK" />
           </span>
         </span>
