@@ -1,11 +1,5 @@
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
-import { ProductsProps } from "../../interfaces/interfaces";
-
-export interface cartProductType {
-  id: string;
-  quantity: number;
-  product: ProductsProps;
-}
+import { cartProductType, ProductsProps } from "../../interfaces/interfaces";
 
 interface CartState {
   loading: boolean;

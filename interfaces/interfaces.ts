@@ -45,3 +45,9 @@ export type updateQtyProps = {
   type: "INCREMENT" | "DECREMENT";
   id: string;
 };
+
+export interface cartProductType {
+  id: string;
+  quantity: number;
+  product: ProductsProps;
+}

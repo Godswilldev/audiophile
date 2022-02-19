@@ -1,5 +1,4 @@
-import { ProductsProps, updateQtyProps } from "../../interfaces/interfaces";
-import { cartProductType } from "../Reducers/cartReducer";
+import { cartProductType, updateQtyProps } from "../../interfaces/interfaces";
 
 export enum ActionTypes {
   ADD_TO_CART = "ADD_TO_CART",

@@ -1,7 +1,6 @@
 import { ActionTypes } from "./ActionTypes";
 import { AppDispatch } from "../store/store";
-import { ProductsProps, updateQtyProps } from "../../interfaces/interfaces";
-import { cartProductType } from "../Reducers/cartReducer";
+import { updateQtyProps, cartProductType } from "../../interfaces/interfaces";
 
 // cart
 export const handleAddToCart =
