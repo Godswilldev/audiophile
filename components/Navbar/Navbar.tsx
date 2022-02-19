@@ -6,15 +6,21 @@ import cart from "../../assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
 import { boldText } from "../../Utils/Typography";
 import Link from "next/link";
+import { useAppSelector } from "../../Hooks/useStoreHook";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
 
   const handleScrolled = () =>
     window.scrollY > 100 ? setScrolled(true) : setScrolled(false);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScrolled);
   }, [scrolled]);
+
+  const { cartProducts } = useAppSelector(({ cartReducer }) => cartReducer);
 
   return (
     <NavbarStyles
@@ -32,7 +38,10 @@ const Navbar = () => {
           <Link href="/category/earphones">Earphones</Link>
         </ul>
 
-        <Image src={cart} alt="cart" />
+        <span onClick={() => router.push("/checkout")}>
+          <p>{cartProducts.length > 0 && cartProducts.length}</p>
+          <Image src={cart} alt="cart" />
+        </span>
       </div>
     </NavbarStyles>
   );
