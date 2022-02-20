@@ -11,6 +11,13 @@ const initialState: CartState = {
   grandTotal: 0,
 };
 
+// const tot = initialState.cartProducts
+//   .map((p) => p.product.price)
+//   .reduce((accumulator, currentValue) => {
+//     accumulator + currentValue;
+//   });
+// const total = initialState.cartProducts.map((p) => p.product.price);
+
 const cartReducer = (
   state: CartState = initialState,
   action: Actions
