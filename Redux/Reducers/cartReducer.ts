@@ -1,17 +1,22 @@
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
 import { CartState } from "../../interfaces/interfaces";
+import store from "../store/store";
 
 const initialState: CartState = {
   loading: false,
   error: null,
   cartProducts: [],
+  isCartOpen: false,
   total: 0,
   shipping: 0,
   vat: 0,
   grandTotal: 0,
 };
+const greg = [1, 2, 3, 4];
 
-// const tot = initialState.cartProducts
+// const tot = store
+//   .getState()
+//   .cartReducer.cartProducts
 //   .map((p) => p.product.price)
 //   .reduce((accumulator, currentValue) => {
 //     accumulator + currentValue;
@@ -35,6 +40,9 @@ const cartReducer = (
 
     case ActionTypes.ADD_TO_CART_ERROR:
       return { ...state, loading: false };
+
+    case ActionTypes.TOGGLE_CART_STATE:
+      return { ...state, isCartOpen: action.payload };
 
     case ActionTypes.UPDATE_QUANTITY:
       const productId = action.payload.id;

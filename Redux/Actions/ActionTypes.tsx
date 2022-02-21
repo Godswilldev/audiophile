@@ -5,6 +5,7 @@ export enum ActionTypes {
   ADD_TO_CART_SUCCESS = "ADD_TO_CART_SUCCESS",
   ADD_TO_CART_ERROR = "ADD_TO_CART_ERROR",
   UPDATE_QUANTITY = "UPDATE_QUANTITY",
+  TOGGLE_CART_STATE = "TOGGLE_CART_STATE",
 }
 
 // cart
@@ -27,8 +28,14 @@ interface UpdateQuantity {
   payload: updateQtyProps;
 }
 
+interface ToggleCart {
+  type: ActionTypes.TOGGLE_CART_STATE;
+  payload: boolean;
+}
+
 export type Actions =
   | AddToCart
   | AddToCartSuccess
   | AddToCartError
-  | UpdateQuantity;
+  | UpdateQuantity
+  | ToggleCart;

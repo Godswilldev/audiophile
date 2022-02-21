@@ -6,11 +6,11 @@ import cart from "../../assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
 import { boldText } from "../../Utils/Typography";
 import Link from "next/link";
-import { useAppSelector } from "../../Hooks/useStoreHook";
+import { useAppSelector, useAppDispatch } from "../../Hooks/useStoreHook";
 import { useRouter } from "next/router";
+import Cart from "../cart/Cart";
 
 const Navbar = () => {
-  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
 
   const handleScrolled = () =>
@@ -20,30 +20,36 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScrolled);
   }, [scrolled]);
 
-  const { cartProducts } = useAppSelector(({ cartReducer }) => cartReducer);
+  const { cartProducts, isCartOpen } = useAppSelector(
+    ({ cartReducer }) => cartReducer
+  );
+  const { toggleCartOpening } = useAppDispatch();
 
   return (
-    <NavbarStyles
-      style={{
-        position: scrolled ? "fixed" : "relative",
-      }}
-    >
-      <div className="nav">
-        <Image className="nav__logo" src={logo} alt="nav logo" />
+    <>
+      <NavbarStyles
+        style={{
+          position: scrolled ? "fixed" : "relative",
+        }}
+      >
+        <div className="nav">
+          <Image className="nav__logo" src={logo} alt="nav logo" />
 
-        <ul className="nav__links">
-          <Link href="/">Home</Link>
-          <Link href="/category/headphones">Headphones</Link>
-          <Link href="/category/speakers">Speakers</Link>
-          <Link href="/category/earphones">Earphones</Link>
-        </ul>
+          <ul className="nav__links">
+            <Link href="/">Home</Link>
+            <Link href="/category/headphones">Headphones</Link>
+            <Link href="/category/speakers">Speakers</Link>
+            <Link href="/category/earphones">Earphones</Link>
+          </ul>
 
-        <span onClick={() => router.push("/checkout")}>
-          <p>{cartProducts.length > 0 && cartProducts.length}</p>
-          <Image src={cart} alt="cart" />
-        </span>
-      </div>
-    </NavbarStyles>
+          <span className="cart" onClick={() => toggleCartOpening(!isCartOpen)}>
+            <p>{cartProducts.length > 0 && cartProducts.length}</p>
+            <Image src={cart} alt="cart" />
+          </span>
+        </div>
+      </NavbarStyles>
+      {isCartOpen && <Cart />}
+    </>
   );
 };
 
@@ -58,7 +64,11 @@ const NavbarStyles = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  z-index: 99;
+  z-index: 9;
+
+  .cart {
+    cursor: pointer;
+  }
   .nav {
     display: flex;
     justify-content: space-around;

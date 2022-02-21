@@ -77,6 +77,7 @@ export interface CartState {
   loading: boolean;
   error: null | string;
   cartProducts: cartProductType[];
+  isCartOpen: boolean;
   total: number;
   shipping: number;
   vat: number;

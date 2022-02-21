@@ -28,3 +28,8 @@ export const updateQuantity =
       type: ActionTypes.UPDATE_QUANTITY,
       payload: product,
     });
+
+export const toggleCartOpening = (payload: boolean) => ({
+  type: ActionTypes.TOGGLE_CART_STATE,
+  payload,
+});
