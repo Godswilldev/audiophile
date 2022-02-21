@@ -1,6 +1,5 @@
 import { Actions, ActionTypes } from "../Actions/ActionTypes";
 import { CartState } from "../../interfaces/interfaces";
-import store from "../store/store";
 
 const initialState: CartState = {
   loading: false,
