@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
-import { Global } from "../Utils/GlobalStyles";
+import { Global } from "../utils/GlobalStyles";
 import { PersistGate } from "redux-persist/integration/react";
 import store from "../Redux/store/store";
 

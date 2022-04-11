@@ -4,7 +4,7 @@ import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../../components/Buttons/Button";
 import { ToastContainer, toast } from "react-toastify";
-import { useAppDispatch, useAppSelector } from "../../Hooks/useStoreHook";
+import { useAppDispatch, useAppSelector } from "../../hooks/useStoreHook";
 import ProductPreview from "../../components/ProductPreview/ProductPreview";
 
 const ProductDetail = () => {
@@ -77,7 +77,11 @@ const ProductDetail = () => {
   return (
     <div>
       <ToastContainer newestOnTop={true} />
-      <Image src={currentProduct?.image.desktop} alt={`${routeName} image`} />
+      <Image
+        priority={true}
+        src={currentProduct?.image.desktop}
+        alt={`${routeName} image`}
+      />
       {currentProduct?.new && <h3>New Product</h3>}
       <h1>{currentProduct?.name}</h1>
       <p>{currentProduct?.description}</p>
@@ -92,14 +96,17 @@ const ProductDetail = () => {
       ))}
 
       <Image
+        priority={true}
         src={currentProduct?.gallery.first.desktop}
         alt={`${routeName} image`}
       />
       <Image
+        priority={true}
         src={currentProduct?.gallery.second.desktop}
         alt={`${routeName} image`}
       />
       <Image
+        priority={true}
         src={currentProduct?.gallery.third.desktop}
         alt={`${routeName} image`}
       />

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../../Utils/Theme";
-import { useAppSelector, useAppDispatch } from "../../Hooks/useStoreHook";
+import { colors } from "../../utils/Theme";
+import { useAppSelector, useAppDispatch } from "../../hooks/useStoreHook";
 import Image from "next/image";
 import Button from "../Buttons/Button";
 

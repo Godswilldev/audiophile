@@ -1,6 +1,6 @@
-import { ProductsState } from "../../interfaces/interfaces";
+import { ProductsState } from "interfaces/interfaces";
 import { Actions } from "../Actions/ActionTypes";
-import data from "../../Utils/data";
+import data from "../../utils/data";
 
 const initialState: ProductsState = {
   loading: false,

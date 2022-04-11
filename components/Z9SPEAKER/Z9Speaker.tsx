@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { colors } from "../../Utils/Theme";
+import { colors } from "../../utils/Theme";
 import patternCircles from "../../assets/home/desktop/pattern-circles.svg";
 import Z9 from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import Image from "next/image";
 import Button from "../Buttons/Button";
 import Router from "next/router";
-import { h1 } from "../../Utils/Typography";
-import { body } from "./../../Utils/Typography";
+import { h1 } from "../../utils/Typography";
+import { body } from "../../utils/Typography";
 
 const Z9Speaker = () => {
   return (

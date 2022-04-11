@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { colors } from "../../Utils/Theme";
+import { colors } from "../../utils/Theme";
 import logo from "../../assets/shared/desktop/logo.svg";
-import { body, boldText } from "../../Utils/Typography";
+import { body, boldText } from "../../utils/Typography";
 import facebookIcon from "../../assets/shared/desktop/icon-facebook.svg";
 import instagramIcon from "../../assets/shared/desktop/icon-instagram.svg";
 import twitterIcon from "../../assets/shared/desktop/icon-twitter.svg";

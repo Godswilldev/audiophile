@@ -11,7 +11,6 @@ const initialState: CartState = {
   vat: 0,
   grandTotal: 0,
 };
-const greg = [1, 2, 3, 4];
 
 // const tot = store
 //   .getState()

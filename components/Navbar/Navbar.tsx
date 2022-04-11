@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { colors } from "./../../Utils/Theme";
+import { colors } from "../../utils/Theme";
 import { useState, useEffect } from "react";
 import logo from "../../assets/shared/desktop/logo.svg";
 import cart from "../../assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
-import { boldText } from "../../Utils/Typography";
+import { boldText } from "../../utils/Typography";
 import Link from "next/link";
-import { useAppSelector, useAppDispatch } from "../../Hooks/useStoreHook";
+import { useAppSelector, useAppDispatch } from "../../hooks/useStoreHook";
 import { useRouter } from "next/router";
 import Cart from "../cart/Cart";
 

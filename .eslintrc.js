@@ -1,33 +1,23 @@
 module.exports = {
-
   parser: "@typescript-eslint/parser",
 
   settings: {
-
     "import/resolver": {
-
       node: {
-
-        paths: ["src"],
+        paths: ["."],
 
         extensions: [".js", ".jsx", ".ts", ".tsx"],
-
       },
-
     },
-
   },
 
   parserOptions: {
-
     project: "./tsconfig.json",
 
     tsconfigRootDir: "./",
-
   },
 
   extends: [
-
     "eslint-config-react-app",
 
     "react-app",
@@ -35,13 +25,11 @@ module.exports = {
     "airbnb-typescript-prettier",
 
     "plugin:sonarjs/recommended",
-
   ],
 
   plugins: ["sonarjs"],
 
   rules: {
-
     "@typescript-eslint/explicit-function-return-type": "off",
 
     "react/no-array-index-key": 0,
@@ -69,29 +57,20 @@ module.exports = {
     "react-hooks/exhaustive-deps": 0,
 
     "no-restricted-imports": [
-
       "error",
 
       {
-
         paths: [
-
           {
-
             name: "styled-components",
 
             message: "Please import from styled-components/macro.",
-
           },
-
         ],
 
         patterns: ["!styled-components/macro"],
-
       },
-
     ],
-
   },
 
   /*overrides: [
@@ -133,5 +112,4 @@ module.exports = {
     },
 
   ],*/
-
 };

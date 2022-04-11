@@ -6,11 +6,11 @@ import "swiper/css/navigation";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import { ProductsProps } from "../../interfaces/interfaces";
 import styled from "styled-components";
-import { colors } from "../../Utils/Theme";
+import { colors } from "../../utils/Theme";
 import Button from "../Buttons/Button";
 import Router from "next/router";
-import { body, h1, lightText } from "../../Utils/Typography";
-import { useAppSelector } from "../../Hooks/useStoreHook";
+import { body, h1, lightText } from "../../utils/Typography";
+import { useAppSelector } from "../../hooks/useStoreHook";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 

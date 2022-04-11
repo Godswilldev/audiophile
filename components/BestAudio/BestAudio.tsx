@@ -1,8 +1,9 @@
 import Image from "next/image";
-import styled from "styled-components";
-import BestGear from "../../assets/shared/desktop/image-best-gear.jpg";
-import { colors } from "../../Utils/Theme";
-import { body, h2 } from "../../Utils/Typography";
+import styled from "styled-components/macro";
+import BestGear from "assets/shared/desktop/image-best-gear.jpg";
+import { colors } from "utils/Theme";
+import { body, h2 } from "utils/Typography";
+
 const BestAudio = () => {
   return (
     <BEstAudioStyles>

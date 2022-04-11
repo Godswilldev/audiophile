@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { colors } from "../../Utils/Theme";
-import { h2 } from "../../Utils/Typography";
-import { useAppSelector } from "../../Hooks/useStoreHook";
+import { colors } from "../../utils/Theme";
+import { h2 } from "../../utils/Typography";
+import { useAppSelector } from "../../hooks/useStoreHook";
 import CategoryProduct from "../../components/CategoryProduct/CategoryProduct";
 import CategoryGroup from "../../components/CategoryType/CategoryGroup";
 import BestAudio from "../../components/BestAudio/BestAudio";

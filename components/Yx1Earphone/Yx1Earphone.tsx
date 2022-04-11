@@ -3,8 +3,8 @@ import Image from "next/image";
 import yx1 from "../../assets/home/desktop/image-earphones-yx1.jpg";
 import Button from "../Buttons/Button";
 import Router from "next/router";
-import { h4 } from "../../Utils/Typography";
-import { colors } from "../../Utils/Theme";
+import { h4 } from "../../utils/Typography";
+import { colors } from "../../utils/Theme";
 
 const Yx1Earphone = () => {
   return (

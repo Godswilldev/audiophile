@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { h5 } from "../../Utils/Typography";
+import { h5 } from "../../utils/Typography";
 import Button from "../Buttons/Button";
 import { useRouter } from "next/router";
 
