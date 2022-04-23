@@ -2,7 +2,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { persistReducer } from "redux-persist";
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "redux/store/rootReducer";
+import rootReducer from "@/redux/store/rootReducer";
 import storageSession from "redux-persist/lib/storage/session";
 
 const persistConfig = {

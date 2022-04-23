@@ -8,8 +8,8 @@ import {
   toggleCartOpening,
   incrementQuantity,
   decrementQuantity,
-} from "redux/actions/actions";
-import { RootState } from "redux/store/store";
+} from "@/redux/actions/actions";
+import { RootState } from "@/redux/store/store";
 
 const initialState: CartState = {
   cartProducts: [],

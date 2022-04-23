@@ -8,7 +8,7 @@ import { boldText } from "utils/typography";
 import Link from "next/link";
 import { useAppSelector, useAppDispatch } from "hooks/useStoreHook";
 import Cart from "components/cart/cart";
-import { toggleCart } from "redux/reducers/cartReducer";
+import { toggleCart } from "@/redux/reducers/cartReducer";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();

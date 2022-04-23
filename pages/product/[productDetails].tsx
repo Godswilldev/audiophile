@@ -10,7 +10,7 @@ import {
   addItemToCart,
   decreaseQuantity,
   increaseQuantity,
-} from "redux/reducers/cartReducer";
+} from "@/redux/reducers/cartReducer";
 
 const ProductDetail = () => {
   const router = useRouter();

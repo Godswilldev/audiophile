@@ -10,7 +10,7 @@ import {
   increaseQuantity,
   clearCartItems,
   getTotalPrice,
-} from "redux/reducers/cartReducer";
+} from "@/redux/reducers/cartReducer";
 
 const Cart = () => {
   const { cartProducts } = useAppSelector(({ cartReducer }) => cartReducer);

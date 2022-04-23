@@ -6,6 +6,9 @@
     "allowJs": true,
     "skipLibCheck": true,
     "baseUrl": ".",
+    "paths": {
+      "@/redux/*": ["redux/*"]
+    },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
@@ -17,6 +20,12 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/data.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "utils/data.ts",
+    "redux/*"
+  ],
   "exclude": ["node_modules", ".git"]
 }
