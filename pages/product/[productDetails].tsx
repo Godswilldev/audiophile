@@ -4,7 +4,7 @@ import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "components/buttons/button";
 import { ToastContainer, toast } from "react-toastify";
-import { useAppDispatch, useAppSelector } from "hooks/useStoreHook";
+import { useAppDispatch, useAppSelector } from "@/redux/store/store";
 import ProductPreview from "components/productPreview/productPreview";
 import {
   addItemToCart,

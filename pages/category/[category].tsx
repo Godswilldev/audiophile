@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { colors } from "utils/theme";
 import { h2 } from "utils/typography";
-import { useAppSelector } from "hooks/useStoreHook";
+import { useAppSelector } from "@/redux/store/store";
 import CategoryProduct from "components/categoryProduct/categoryProduct";
 import CategoryGroup from "components/categoryType/categoryGroup";
 import BestAudio from "components/bestAudio/bestAudio";
