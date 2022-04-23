@@ -1,49 +1,70 @@
-import { ActionTypes, Actions } from "redux/actions/actionTypes";
-import { updateQtyProps, cartProductType } from "interfaces/interfaces";
-import { Dispatch } from "redux";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { CartState, cartProductType } from "interfaces/interfaces";
+import { toast } from "react-toastify";
 
-const addToCart = () => ({
-  type: ActionTypes.ADD_TO_CART,
-});
+export const addToCart = (
+  state: CartState,
+  action: PayloadAction<cartProductType>
+) => {
+  state.cartProducts.push(action.payload);
+};
 
-const addToCartSuccess = (product: cartProductType) => ({
-  type: ActionTypes.ADD_TO_CART_SUCCESS,
-  payload: product,
-});
+export const removeItemFromCart = (
+  state: CartState,
+  action: PayloadAction<string>
+) => {
+  state.cartProducts.filter((p) => p.id !== action.payload);
+};
 
-const addToCartError = (error: any) => ({
-  type: ActionTypes.ADD_TO_CART_ERROR,
-  payload: error,
-});
+export const clearCart = (state: CartState) => {
+  state.cartProducts = [];
+};
 
-// cart
-export const handleAddToCart =
-  (product: cartProductType) => async (dispatch: Dispatch<Actions>) => {
-    dispatch({
-      type: ActionTypes.ADD_TO_CART,
+export const toggleCartOpening = (
+  state: CartState,
+  action: PayloadAction<boolean>
+) => {
+  state.isCartOpen = action.payload;
+};
+
+export const incrementQuantity = (
+  state: CartState,
+  action: PayloadAction<string>
+) => {
+  const itemIndex = state.cartProducts.findIndex(
+    (cartProduct: cartProductType) => cartProduct.id === action.payload
+  );
+
+  if (state.cartProducts[itemIndex]) {
+    state.cartProducts[itemIndex].quantity >= 1 &&
+      (state.cartProducts[itemIndex].quantity += 1);
+  } else {
+    toast(<h3>Product isn't in Cart. Add Product to cart First</h3>, {
+      theme: "dark",
+      type: "error",
+      position: "top-left",
+      autoClose: 3000,
     });
-    try {
-      dispatch({
-        type: ActionTypes.ADD_TO_CART_SUCCESS,
-        payload: product,
-      });
-    } catch (error) {
-      dispatch({
-        type: ActionTypes.ADD_TO_CART_ERROR,
-        payload: error,
-      });
-    }
-  };
+  }
+};
 
-const quantityUpdate = (product: updateQtyProps) => ({
-  type: ActionTypes.UPDATE_QUANTITY,
-  payload: product,
-});
-export const updateQuantity =
-  (product: updateQtyProps) => async (dispatch: Dispatch) =>
-    dispatch(quantityUpdate(product));
+export const decrementQuantity = (
+  state: CartState,
+  action: PayloadAction<string>
+) => {
+  const itemIndex = state.cartProducts.findIndex(
+    (cartProduct: cartProductType) => cartProduct.id === action.payload
+  );
 
-export const toggleCartOpening = (payload: boolean) => ({
-  type: ActionTypes.TOGGLE_CART_STATE,
-  payload,
-});
+  if (state.cartProducts[itemIndex]) {
+    state.cartProducts[itemIndex].quantity >= 1 &&
+      (state.cartProducts[itemIndex].quantity -= 1);
+  } else {
+    toast(<h3>Product isn't in Cart. Add Product to cart First</h3>, {
+      theme: "dark",
+      type: "error",
+      position: "top-left",
+      autoClose: 3000,
+    });
+  }
+};
