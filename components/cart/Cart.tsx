@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "utils/theme";
-import { useAppSelector } from "hooks/useStoreHook";
+import { useAppSelector } from "@/redux/store/store";
 import Image from "next/image";
 import Button from "components/buttons/button";
-import { useAppDispatch } from "hooks/useStoreHook";
+import { useAppDispatch } from "@/redux/store/store";
 import {
   decreaseQuantity,
   increaseQuantity,

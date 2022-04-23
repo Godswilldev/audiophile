@@ -10,7 +10,7 @@ import { colors } from "utils/theme";
 import Button from "components/buttons/button";
 import Router from "next/router";
 import { body, h1, lightText } from "utils/typography";
-import { useAppSelector } from "hooks/useStoreHook";
+import { useAppSelector } from "@/redux/store/store";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 

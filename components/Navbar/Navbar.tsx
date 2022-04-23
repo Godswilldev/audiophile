@@ -6,7 +6,7 @@ import cart from "assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
 import { boldText } from "utils/typography";
 import Link from "next/link";
-import { useAppSelector, useAppDispatch } from "hooks/useStoreHook";
+import { useAppSelector, useAppDispatch } from "@/redux/store/store";
 import Cart from "components/cart/cart";
 import { toggleCart } from "@/redux/reducers/cartReducer";
 
