@@ -7,11 +7,11 @@ import Image from "next/image";
 import { boldText } from "utils/typography";
 import Link from "next/link";
 import { useAppSelector, useAppDispatch } from "hooks/useStoreHook";
-import { useRouter } from "next/router";
 import Cart from "components/cart/cart";
-import { toggleCartOpening } from "redux/actions/actions";
+import { toggleCart } from "redux/reducers/cartReducer";
 
 const Navbar = () => {
+  const dispatch = useAppDispatch();
   const [scrolled, setScrolled] = useState(false);
 
   const handleScrolled = () =>
@@ -42,7 +42,10 @@ const Navbar = () => {
             <Link href="/category/earphones">Earphones</Link>
           </ul>
 
-          <span className="cart" onClick={() => toggleCartOpening(!isCartOpen)}>
+          <span
+            className="cart"
+            onClick={() => dispatch(toggleCart(!isCartOpen))}
+          >
             <p>{cartProducts.length > 0 && cartProducts.length}</p>
             <Image src={cart} alt="cart" />
           </span>

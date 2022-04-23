@@ -4,11 +4,20 @@ import { colors } from "utils/theme";
 import { useAppSelector } from "hooks/useStoreHook";
 import Image from "next/image";
 import Button from "components/buttons/button";
-import { updateQuantity } from "redux/actions/actions";
+import { useAppDispatch } from "hooks/useStoreHook";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  clearCartItems,
+  getTotalPrice,
+} from "redux/reducers/cartReducer";
 
 const Cart = () => {
   const { cartProducts } = useAppSelector(({ cartReducer }) => cartReducer);
 
+  const total = useAppSelector(getTotalPrice);
+
+  const dispatch = useAppDispatch();
   return (
     <CartStyles>
       {cartProducts.length === 0 ? (
@@ -17,7 +26,9 @@ const Cart = () => {
         <>
           <div className="cart__header">
             <h1>Cart ({cartProducts.length})</h1>
-            <button>Remove all</button>
+            <button onClick={() => dispatch(clearCartItems())}>
+              Remove all
+            </button>
           </div>
           <>
             {cartProducts.map((product) => (
@@ -32,32 +43,20 @@ const Cart = () => {
                 <h2>${product.product.price}</h2>
                 <button
                   disabled={product.quantity === 1}
-                  onClick={() =>
-                    updateQuantity({
-                      type: "DECREMENT",
-                      id: product?.id,
-                    })
-                  }
+                  onClick={() => dispatch(decreaseQuantity(product.id))}
                 >
                   <h1>-</h1>
                 </button>
 
                 <h1>{product.quantity}</h1>
 
-                <button
-                  onClick={() =>
-                    updateQuantity({
-                      type: "INCREMENT",
-                      id: product?.id,
-                    })
-                  }
-                >
+                <button onClick={() => dispatch(increaseQuantity(product.id))}>
                   <h1>+</h1>
                 </button>
               </div>
             ))}
           </>
-          <h1>TOTAL</h1>
+          <h1>TOTAL - {total}</h1>
           <Button text={"CHECKOUT"} variant={"PINK_DARK"} />
         </>
       )}
