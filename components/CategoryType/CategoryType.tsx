@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styled from "styled-components";
-import headphones from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
-import earphones from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
-import speaker from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
-import { colors } from "../../utils/Theme";
-import { h6 } from "../../utils/Typography";
-import Button from "./../Buttons/Button";
+import headphones from "assets/shared/desktop/image-category-thumbnail-headphones.png";
+import earphones from "assets/shared/desktop/image-category-thumbnail-earphones.png";
+import speaker from "assets/shared/desktop/image-category-thumbnail-speakers.png";
+import { colors } from "utils/theme";
+import { h6 } from "utils/typography";
+import Button from "components/buttons/button";
 import { useRouter } from "next/router";
 
 interface Type {

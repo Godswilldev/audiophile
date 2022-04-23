@@ -57,8 +57,6 @@ export interface ProductsProps {
 }
 
 export interface ProductsState {
-  loading: boolean;
-  error: string | null;
   products: ProductsProps[];
 }
 
@@ -74,8 +72,6 @@ export interface cartProductType {
 }
 
 export interface CartState {
-  loading: boolean;
-  error: null | string;
   cartProducts: cartProductType[];
   isCartOpen: boolean;
   total: number;

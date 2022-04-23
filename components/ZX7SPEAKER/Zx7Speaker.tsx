@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Router from "next/router";
 import styled from "styled-components";
-import Zx7Speak from "../../assets/home/desktop/image-speaker-zx7.jpg";
-import { h4 } from "../../utils/Typography";
-import Button from "./../Buttons/Button";
+import Zx7Speak from "assets/home/desktop/image-speaker-zx7.jpg";
+import { h4 } from "utils/typography";
+import Button from "components/buttons/button";
 
 const Zx7Speaker = () => {
   return (

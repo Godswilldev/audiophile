@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CategoryType from "./CategoryType";
+import CategoryType from "components/categoryType/categoryType";
 
 const CategoryGroup = () => {
   return (

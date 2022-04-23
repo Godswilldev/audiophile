@@ -1,4 +1,4 @@
-import { colors } from "utils/Theme";
+import { colors } from "utils/theme";
 
 export const body = {
   fontSize: "1.5rem",

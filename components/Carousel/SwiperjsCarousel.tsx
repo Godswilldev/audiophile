@@ -4,13 +4,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-import { ProductsProps } from "../../interfaces/interfaces";
+import { ProductsProps } from "interfaces/interfaces";
 import styled from "styled-components";
-import { colors } from "../../utils/Theme";
-import Button from "../Buttons/Button";
+import { colors } from "utils/theme";
+import Button from "components/buttons/button";
 import Router from "next/router";
-import { body, h1, lightText } from "../../utils/Typography";
-import { useAppSelector } from "../../hooks/useStoreHook";
+import { body, h1, lightText } from "utils/typography";
+import { useAppSelector } from "hooks/useStoreHook";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 

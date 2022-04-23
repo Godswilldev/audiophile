@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../../utils/Theme";
-import { useAppSelector, useAppDispatch } from "../../hooks/useStoreHook";
+import { colors } from "utils/theme";
+import { useAppSelector } from "hooks/useStoreHook";
 import Image from "next/image";
-import Button from "../Buttons/Button";
+import Button from "components/buttons/button";
+import { updateQuantity } from "redux/actions/actions";
 
 const Cart = () => {
-  const { updateQuantity } = useAppDispatch();
-
   const { cartProducts } = useAppSelector(({ cartReducer }) => cartReducer);
 
   return (

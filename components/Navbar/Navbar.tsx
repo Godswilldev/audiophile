@@ -1,14 +1,15 @@
 import styled from "styled-components";
-import { colors } from "../../utils/Theme";
+import { colors } from "utils/theme";
 import { useState, useEffect } from "react";
-import logo from "../../assets/shared/desktop/logo.svg";
-import cart from "../../assets/shared/desktop/icon-cart.svg";
+import logo from "assets/shared/desktop/logo.svg";
+import cart from "assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
-import { boldText } from "../../utils/Typography";
+import { boldText } from "utils/typography";
 import Link from "next/link";
-import { useAppSelector, useAppDispatch } from "../../hooks/useStoreHook";
+import { useAppSelector, useAppDispatch } from "hooks/useStoreHook";
 import { useRouter } from "next/router";
-import Cart from "../cart/Cart";
+import Cart from "components/cart/cart";
+import { toggleCartOpening } from "redux/actions/actions";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,6 @@ const Navbar = () => {
   const { cartProducts, isCartOpen } = useAppSelector(
     ({ cartReducer }) => cartReducer
   );
-  const { toggleCartOpening } = useAppDispatch();
 
   return (
     <>

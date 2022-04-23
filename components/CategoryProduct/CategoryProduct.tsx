@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { ProductsProps } from "../../interfaces/interfaces";
-import Button from "../Buttons/Button";
+import { ProductsProps } from "interfaces/interfaces";
+import Button from "components/buttons/button";
 import Router from "next/router";
 
 type categoryProp = {

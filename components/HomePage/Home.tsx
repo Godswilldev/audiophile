@@ -1,11 +1,11 @@
-import BestAudio from "../BestAudio/BestAudio";
-import CategoryGroup from "./../CategoryType/CategoryGroup";
+import BestAudio from "components/bestAudio/bestAudio";
+import CategoryGroup from "components/bestAudio/bestAudio";
 import styled from "styled-components";
-import SwiperjsCarousel from "../Carousel/SwiperjsCarousel";
-import { colors } from "../../utils/Theme";
-import Z9Speaker from "../Z9SPEAKER/Z9Speaker";
-import Zx7Speaker from "../ZX7SPEAKER/Zx7Speaker";
-import Yx1Earphone from "../Yx1Earphone/Yx1Earphone";
+import SwiperjsCarousel from "components/carousel/swiperjsCarousel";
+import { colors } from "utils/theme";
+import Z9Speaker from "components/z9SPEAKER/z9Speaker";
+import Zx7Speaker from "components/zX7SPEAKER/zx7Speaker";
+import Yx1Earphone from "components/yx1Earphone/yx1Earphone";
 
 const Home = () => {
   return (

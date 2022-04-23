@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../utils/Theme";
+import { colors } from "utils/theme";
 
 interface ButtonProps {
   text: string;

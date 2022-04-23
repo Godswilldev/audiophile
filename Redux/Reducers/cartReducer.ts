@@ -1,9 +1,7 @@
-import { Actions, ActionTypes } from "../Actions/ActionTypes";
-import { CartState } from "../../interfaces/interfaces";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { cartProductType, CartState } from "interfaces/interfaces";
 
 const initialState: CartState = {
-  loading: false,
-  error: null,
   cartProducts: [],
   isCartOpen: false,
   total: 0,
@@ -12,77 +10,97 @@ const initialState: CartState = {
   grandTotal: 0,
 };
 
-// const tot = store
-//   .getState()
-//   .cartReducer.cartProducts
-//   .map((p) => p.product.price)
-//   .reduce((accumulator, currentValue) => {
-//     accumulator + currentValue;
-//   });
-// const total = initialState.cartProducts.map((p) => p.product.price);
+const cartReducer = createSlice({
+  name: "cartReducer",
+  initialState,
+  reducers: {
+    addItemToCart: (
+      state: CartState,
+      action: PayloadAction<cartProductType>
+    ) => {
+      state.cartProducts.push(action.payload);
+    },
+  },
+});
 
-const cartReducer = (
-  state: CartState = initialState,
-  action: Actions
-): CartState => {
-  switch (action.type) {
-    case ActionTypes.ADD_TO_CART:
-      return { ...state, loading: true };
+export const { addItemToCart } = cartReducer.actions;
 
-    case ActionTypes.ADD_TO_CART_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        cartProducts: state.cartProducts.concat(action.payload),
-      };
+export default cartReducer.reducer;
 
-    case ActionTypes.ADD_TO_CART_ERROR:
-      return { ...state, loading: false };
+// // const tot = store
+// //   .getState()
+// //   .cartReducer.cartProducts
+// //   .map((p) => p.product.price)
+// //   .reduce((accumulator, currentValue) => {
+// //     accumulator + currentValue;
+// //   });
+// const total = initialState.cartProducts.reduce(
+//   (acc, next) => (acc += next.quantity * next.product.price),
+//   0
+// );
 
-    case ActionTypes.TOGGLE_CART_STATE:
-      return { ...state, isCartOpen: action.payload };
+// const cartReducer = (
+//   state: CartState = initialState,
+//   action: Actions
+// ): CartState => {
+//   switch (action.type) {
+//     case ActionTypes.ADD_TO_CART:
+//       return { ...state, loading: true };
 
-    case ActionTypes.UPDATE_QUANTITY:
-      const productId = action.payload.id;
+//     case ActionTypes.ADD_TO_CART_SUCCESS:
+//       return {
+//         ...state,
+//         loading: false,
+//         cartProducts: state.cartProducts.concat(action.payload),
+//       };
 
-      const updateType = action.payload.type;
+//     case ActionTypes.ADD_TO_CART_ERROR:
+//       return { ...state, loading: false };
 
-      let currentProduct = state.cartProducts.find(
-        (product) => product.id === productId
-      );
+//     case ActionTypes.TOGGLE_CART_STATE:
+//       return { ...state, isCartOpen: action.payload };
 
-      switch (currentProduct) {
-        case undefined:
-          return state;
+//     case ActionTypes.UPDATE_QUANTITY:
+//       const productId = action.payload.id;
 
-        default:
-          switch (updateType) {
-            case "INCREMENT":
-              const updatedCart1 = state.cartProducts.filter(
-                (p) => p.id !== productId
-              );
-              currentProduct.quantity = currentProduct?.quantity + 1;
-              return {
-                ...state,
-                cartProducts: [...updatedCart1, currentProduct],
-              };
+//       const updateType = action.payload.type;
 
-            case "DECREMENT":
-              const updatedCart2 = state.cartProducts.filter(
-                (p) => p.id !== productId
-              );
-              currentProduct.quantity = currentProduct?.quantity - 1;
-              return {
-                ...state,
-                cartProducts: [...updatedCart2, currentProduct],
-              };
-            default:
-              break;
-          }
-      }
+//       let currentProduct = state.cartProducts.find(
+//         (product) => product.id === productId
+//       );
 
-    default:
-      return state;
-  }
-};
-export default cartReducer;
+//       switch (currentProduct) {
+//         case undefined:
+//           return state;
+
+//         default:
+//           switch (updateType) {
+//             case "INCREMENT":
+//               const updatedCart1 = state.cartProducts.filter(
+//                 (p) => p.id !== productId
+//               );
+//               currentProduct.quantity = currentProduct?.quantity + 1;
+//               return {
+//                 ...state,
+//                 cartProducts: [...updatedCart1, currentProduct],
+//               };
+
+//             case "DECREMENT":
+//               const updatedCart2 = state.cartProducts.filter(
+//                 (p) => p.id !== productId
+//               );
+//               currentProduct.quantity = currentProduct?.quantity - 1;
+//               return {
+//                 ...state,
+//                 cartProducts: [...updatedCart2, currentProduct],
+//               };
+//             default:
+//               break;
+//           }
+//       }
+
+//     default:
+//       return state;
+//   }
+// };
+// export default cartReducer;

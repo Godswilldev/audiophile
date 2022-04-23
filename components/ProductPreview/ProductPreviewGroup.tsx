@@ -1,4 +1,4 @@
-import ProductPreview from "./ProductPreview";
+import ProductPreview from "components/productPreview/productPreview";
 import styled from "styled-components";
 
 const ProductPreviewGroup = () => {

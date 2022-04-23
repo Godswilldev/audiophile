@@ -2,10 +2,12 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import Button from "../../components/Buttons/Button";
+import Button from "components/buttons/button";
 import { ToastContainer, toast } from "react-toastify";
-import { useAppDispatch, useAppSelector } from "../../hooks/useStoreHook";
-import ProductPreview from "../../components/ProductPreview/ProductPreview";
+import { useAppDispatch, useAppSelector } from "hooks/useStoreHook";
+import ProductPreview from "components/productPreview/productPreview";
+import { handleAddToCart, updateQuantity } from "redux/actions/actions";
+import { addItemToCart } from "redux/reducers/cartReducer";
 
 const ProductDetail = () => {
   const router = useRouter();
@@ -13,7 +15,6 @@ const ProductDetail = () => {
     router?.query?.productDetails;
 
   const [quantity, setQuantity] = useState(1);
-  const { handleAddToCart, updateQuantity } = useAppDispatch();
 
   const { products } = useAppSelector(({ productsReducer }) => productsReducer);
   const { cartProducts } = useAppSelector(({ cartReducer }) => cartReducer);
@@ -22,7 +23,9 @@ const ProductDetail = () => {
     (product) => product.slug === routeName || product.name === routeName
   );
 
-  const addToCart = () => {
+  const dispatch = useAppDispatch();
+
+  const addProductToCart = () => {
     if (currentProduct === undefined) {
       return;
     } else {
@@ -37,11 +40,15 @@ const ProductDetail = () => {
         });
         return;
       }
-      handleAddToCart({
-        id: currentProduct.slug,
-        quantity,
-        product: currentProduct,
-      });
+
+      dispatch(
+        addItemToCart({
+          id: currentProduct.slug,
+          quantity,
+          product: currentProduct,
+        })
+      );
+
       toast(<h1>{currentProduct?.name} added to cart</h1>, {
         theme: "dark",
         type: "success",
@@ -131,7 +138,7 @@ const ProductDetail = () => {
         <h1>+</h1>
       </button>
 
-      <span onClick={addToCart}>
+      <span onClick={addProductToCart}>
         <Button text="add to cart" variant="PINK_DARK" />
       </span>
     </div>

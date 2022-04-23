@@ -1,10 +1,8 @@
-import { applyMiddleware, createStore } from "redux";
-import rootReducer from "redux/store/rootReducer";
-import { composeWithDevTools } from "redux-devtools-extension";
-import logger from "redux-logger";
 import thunk from "redux-thunk";
-import { persistStore, persistReducer } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
+import logger from "redux-logger";
+import { persistReducer } from "redux-persist";
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "redux/store/rootReducer";
 import storageSession from "redux-persist/lib/storage/session";
 
 const persistConfig = {
@@ -14,19 +12,12 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const configureStore = () => {
-  let store = createStore(
-    persistedReducer,
-    composeWithDevTools(applyMiddleware(thunk, logger))
-  );
-  let persistor = persistStore(store);
-  return { store, persistor };
-};
-
-const store = configureStore().store;
+const store = configureStore({
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== "production",
+  middleware: [thunk, logger],
+});
 
 export type RootState = ReturnType<typeof store.getState>;
-
 export type AppDispatch = typeof store.dispatch;
-
-export default configureStore();
+export default store;

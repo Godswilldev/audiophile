@@ -1,11 +1,9 @@
-/* eslint-disable @next/next/no-title-in-document-head */
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
     <Html>
       <Head>
-        <title>Audiophile | Audio Gadgets Store</title>
         <meta
           name="google-site-verification"
           content="JjLqoWLNSM8dEE81UmadtzdyF1xPk4tzG4bLg50cwt4"
@@ -14,7 +12,7 @@ export default function Document() {
           name="description"
           content="Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast."
         />
-        <link rel="icon" href="/assets/shared/desktop/logo.svg" />
+        <link rel="icon" href="assets/shared/desktop/logo.svg" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
