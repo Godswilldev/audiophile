@@ -6,8 +6,11 @@ import Button from "components/buttons/button";
 import { ToastContainer, toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "hooks/useStoreHook";
 import ProductPreview from "components/productPreview/productPreview";
-import { handleAddToCart, updateQuantity } from "redux/actions/actions";
-import { addItemToCart } from "redux/reducers/cartReducer";
+import {
+  addItemToCart,
+  decreaseQuantity,
+  increaseQuantity,
+} from "redux/reducers/cartReducer";
 
 const ProductDetail = () => {
   const router = useRouter();
@@ -59,26 +62,51 @@ const ProductDetail = () => {
   };
 
   const handleIncrement = () => {
-    setQuantity(quantity + 1);
     if (currentProduct === undefined) {
       return;
+    } else {
+      if (
+        cartProducts
+          .map((product) => product.id)
+          .includes(currentProduct.slug) === false
+      ) {
+        return toast(
+          <h3>Product isn't in Cart. Add Product to cart First</h3>,
+          {
+            theme: "dark",
+            type: "error",
+            position: "top-left",
+            autoClose: 3000,
+          }
+        );
+      }
+      setQuantity(quantity + 1);
+      dispatch(increaseQuantity(currentProduct?.slug));
     }
-    updateQuantity({
-      type: "INCREMENT",
-      id: currentProduct?.slug,
-    });
   };
 
   const handleDecrement = () => {
-    quantity > 1 && setQuantity(quantity - 1);
-
     if (currentProduct === undefined) {
       return;
+    } else {
+      if (
+        cartProducts
+          .map((product) => product.id)
+          .includes(currentProduct.slug) === false
+      ) {
+        return toast(
+          <h3>Product isn't in Cart. Add Product to cart First</h3>,
+          {
+            theme: "dark",
+            type: "error",
+            position: "top-left",
+            autoClose: 3000,
+          }
+        );
+      }
+      setQuantity(quantity - 1);
+      dispatch(decreaseQuantity(currentProduct?.slug));
     }
-    updateQuantity({
-      type: "DECREMENT",
-      id: currentProduct?.slug,
-    });
   };
 
   return (
